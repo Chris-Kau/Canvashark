@@ -29,10 +29,11 @@ app.use((req, res, next)=>{
 //         res.status(500).json({ error: 'Internal server error' });
 //     }
 // });
-
-app.get('/api/v1/users/self/profile', async(req, res)=>{
+//==================================================================================
+//==================================================================================
+app.get('/api/v1/courses', async(req, res)=>{
     try {
-        const response = await fetch(`https://csulb.instructure.com/api/v1/users/self/profile?access_token=${API_TOKEN}`, {
+        const response = await fetch(`https://csulb.instructure.com/api/v1/courses?access_token=${API_TOKEN}`, {
             method: 'GET',
             headers: {
                 'Authorization': `Bearer ${API_TOKEN}`,
@@ -41,6 +42,7 @@ app.get('/api/v1/users/self/profile', async(req, res)=>{
         });
         const data = await response.json();
         console.log('User Profile:', data);
+        console.log()
         res.json(data);
     } catch (error) {
         console.error('Error fetching user profile:', error);
