@@ -7,42 +7,85 @@ document.addEventListener
         renderTasks();
     });
 
-// Function to render tasks on the board
+// Function to render tasks on the board, updated w task details
 function renderTasks() {
-    const columns =
-        ['due-today', 'due-soon', 'upcoming'];
+    const columns = ['due-today', 'due-soon', 'upcoming'];
 
     columns.forEach(columnId => {
-        const column =
-            document.getElementById(columnId);
-        column.querySelector('.task-container').
-            innerHTML = '';
+        const column = document.getElementById(columnId);
+        column.querySelector('.task-container').innerHTML = '';
 
         tasks.forEach(task => {
             if (task.status === columnId) {
-                const taskElement =
-                    createTaskElement(task.content, task.id);
-                column.querySelector('.task-container').
-                    appendChild(taskElement);
+                const taskElement = createTaskElement(
+                    task.content, 
+                    task.id,
+                    task.description,
+                    task.date,
+                    task.tag
+                );
+                column.querySelector('.task-container').appendChild(taskElement);
             }
         });
     });
 }
 
-function createTaskElement(content, id) {
-    const taskId = id
+
+
+// modal stuffs -------
+function openModal() {
+    document.getElementById("taskModal").style.display = "block";
+}
+function closeModal() {
+    document.getElementById("taskModal").style.display = "none";
+}
+
+function addTaskWithDetails() {
+    const title = document.getElementById("taskTitle").value.trim();
+    const description = document.getElementById("taskDescription").value.trim();
+    const date = document.getElementById("taskDate").value;
+    const tag = document.getElementById("taskTag").value.trim();
+
+    if (title !== "") {
+        const newTask = {
+            id: "task-" + Date.now(),
+            content: title,
+            description: description,
+            date: date,
+            tag: tag,
+            status: 'due-today' // Default to 'due-today' or modify as needed
+        };
+        tasks.push(newTask);
+        updateLocalStorage();
+        renderTasks();
+        closeModal();
+        clearModalFields();
+    }
+}
+function clearModalFields() {
+    document.getElementById("taskTitle").value = "";
+    document.getElementById("taskDescription").value = "";
+    document.getElementById("taskDate").value = "";
+    document.getElementById("taskTag").value = "";
+}
+
+function createTaskElement(content, id, description, date, tag) {
     const task = document.createElement("div");
-    task.id = taskId;
+    task.id = id;
     task.className = "task";
     task.draggable = true;
-    task.innerHTML =
-        `${content}
-    <span class="delete-btn" 
-        onclick="deleteTask('${taskId}')"> X
-    </span>`;
+    task.innerHTML = `
+        <p>${content}</p>
+        <p class="description">${description}</p>
+        <p class="date">${date ? new Date(date).toLocaleString() : ""}</p>
+        <p class="tag">${tag ? `#${tag}` : ""}</p>
+        <span class="delete-btn" onclick="deleteTask('${id}')">X</span>
+    `;
     task.addEventListener("dragstart", drag);
     return task;
 }
+
+// -----
 
 
 // Function to delete a task
@@ -118,3 +161,7 @@ function updateLocalStorage() {
     localStorage.setItem
         ('tasks', JSON.stringify(tasks));
 }
+
+
+
+

@@ -24,14 +24,29 @@
                 <hr>
                 <div class="task-container"></div>
 
-                <!-- AAAHHHHHH COPYPASTE-->
-                <div class="tasks-in-btn">
+
+                <!-- yayaya modal !! -->
+                <div id="taskModal" class="modal">
+                    <div class="modal-content">
+                        <span class="close" onclick="closeModal()">&times;</span>
+                        <h2>Add New Task</h2>
+                        <input type="text" id="taskTitle" placeholder="Enter task title..." class="modal-input">
+                        <textarea id="taskDescription" placeholder="Enter task description..." class="modal-input"></textarea>
+                        <input type="datetime-local" id="taskDate" class="modal-input">
+                        <input type="text" id="taskTag" placeholder="Enter a tag..." class="modal-input">
+                        <button onclick="addTaskWithDetails()">Add Task</button>
+                    </div>
+                </div>
+                <button class="add-task-btn" onclick="openModal()">Add Task</button>
+
+                <!--make it a popup instead with title, date, desc, urgency tags enum-->
+                <!-- <div class="tasks-in-btn">
                     <input type="text" id="taskInput" class="task-input" 
                         placeholder="Enter a task...">
                     <button class="add-task-btn" onclick="addTask('due-today')">
                         Add Task
                     </button>
-                </div>
+                </div> -->
 
 
             </div>
