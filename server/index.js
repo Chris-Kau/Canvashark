@@ -1,5 +1,7 @@
 const express = require('express');
 const mongoose = require('mongoose');
+require('dotenv').config();
+canvas_key = process.env.CANVAS_KEY
 
 const app = express();
 app.use(express.json());
