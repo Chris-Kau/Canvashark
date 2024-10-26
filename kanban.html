@@ -22,24 +22,39 @@
                 <h2>DUE TODAY</h2>
                 <hr>
                 <p>hi1</p>
+
+                <!-- AAAHHHHHH COPYPASTE-->
+                <div class="tasks-in-btn">
+                    <input type="text" id="taskInput" class="task-input" 
+                        placeholder="Enter a task..."
+                        oninput="capitalizeInput(this)">
+                    <button class="add-task-btn" onclick="addTask('todo')">
+                        Add Task
+                    </button>
+                </div>
+
+
+                <div class="task-container"></div>
             </div>
 
             <div class="column" id="due-soon" ondrop="drop(event, 'due-soon')" ondragover="allowDrop(event)">
                 <h2>DUE SOON</h2>
                 <hr>
                 <p>hi2</p>
+                <div class="task-container"></div>
             </div>
 
             <div class="column" id="upcoming" ondrop="drop(event, 'upcoming')" ondragover="allowDrop(event)">
                 <h2>UPCOMING</h2>
                 <hr>
                 <p>hi3</p>
+                <div class="task-container"></div>
             </div>
         </div>
 
     </div>
 
-    
+    <script src = "script.js"></script>
     <script src = "courses.js"></script>
 </body>
 </html>
