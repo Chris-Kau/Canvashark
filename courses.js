@@ -1,4 +1,5 @@
 const course_url = "https://csulb.instructure.com/api/v1/courses";
+const key = process.env.CANVAS_KEY;
 async function Test(){
     var request = new XMLHttpRequest()
     request.open('GET', 'https://ghibli.rest/films', true)
@@ -9,6 +10,7 @@ async function Test(){
       if (request.status >= 200 && request.status < 400) {
         data.forEach((movie) => {
           console.log(movie.title)
+          console.log(key)
         })
       } else {
         console.log('error')
