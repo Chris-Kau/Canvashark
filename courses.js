@@ -1,4 +1,5 @@
-import 'dotenv/config'
+import dotenv from "dotenv"
+dotenv.config()
 const course_url = "https://csulb.instructure.com/api/v1/courses";
 const key = process.env.CANVAS_KEY;
 async function Test(){
