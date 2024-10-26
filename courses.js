@@ -3,7 +3,7 @@ const course_url = "https://csulb.instructure.com/api/v1/courses";
 async function Test(){
     const response = await fetch('https://ghibli.rest/films');
     const data = await response.json();
-    var bleh = JSON.parse(this.response)
+    var bleh = JSON.parse(this.data)
     bleh.foreach((movie)=>{
         console.log(movie)
     });
