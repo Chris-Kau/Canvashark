@@ -4,6 +4,8 @@ require('dotenv').config({path: '../.env'});
 API_TOKEN = process.env.ASHLEY_CANVAS_KEY
 DB_URI = process.env.MONGODB_URI
 
+const Task = require('./task_model.js')
+
 const app = express();
 app.use(express.json());
 
@@ -13,16 +15,69 @@ app.use((req, res, next)=>{
     next();
 });
 
-mongoose.connect(DB_URI).then(() => console.log("Database connected"))
-app.get("/db", async (req, res) => {
+// Grab all the documents the Task model
+app.get('/api/tasks', async (req, res) => {
     try {
-        const user = await UserModel.find({});
-        res.json(user); 
+        const tasks = await Task.find({});
+        res.status(200).json(tasks)
     } catch (error) {
-        res.status(500).json({ error: 'Internal server error' });
+        res.status(500).json({message: error.message})
     }
-});
+})
 
+// Grab one specific document from the Task model
+app.get('/api/tasks/:id', async (req, res) => {
+    try {
+        const { id } = req.params;
+        const task = await Task.findById(id);
+        res.status(200).json(task)
+    } catch (error) {
+        res.status(500).json({message: error.message})
+    }
+})
+
+app.post('/api/tasks', async (req, res) => {
+    try {
+        const task = await Task.create(req.body);
+        res.status(200).json(task);
+    } catch (error) {
+        res.status(500).json({message: error.message});
+    }
+})
+
+app.put('/api/task/:id', async (req, res) => {
+    try {
+        const { id } = req.params;
+        const task = await Task.findByIdAndUpdate(id, req.body);
+        if (!task) {
+            return res.status(404).json({message: "Task not found"})
+        }
+        const newTask = await Task.findById(id);
+        res.status(200).json(newTask)
+    } catch (error) {
+        res.status(500).json({message: error.message})
+    }
+})
+
+app.delete('/api/tasks/:id', async (req, res) => {
+    try {
+        const { id } = req.params;
+        const task = await Task.findByIdAndDelete(id);
+        if (!task) {
+            return res.status(404).json({message: "Task not found"})
+        }
+        res.status(200).json({message: "Task deleted successsfully"})
+    } catch (error) {
+        res.status(500).json({message: error.message})
+    }
+})
+
+mongoose.connect(DB_URI).then(() => {
+    console.log("Database connected")
+    app.listen(3000, () => {
+        console.log("Connected")
+    })
+})
 
 app.get('/api/v1', async(req, res)=>{
     try {
@@ -44,8 +99,5 @@ app.get('/api/v1', async(req, res)=>{
         console.error('Error fetching user profile:', error);
     }
 });
-app.listen(3000, () => {
-    console.log("Connected")
-})
 
 module.exports = app;
