@@ -14,15 +14,6 @@ app.use((req, res, next)=>{
 });
 
 mongoose.connect(DB_URI).then(() => console.log("Database connected"))
-
-const UserSchema = new mongoose.Schema({
-    name: String,
-    email: String,
-    password: String
-})
-
-const UserModel = mongoose.model("users", UserSchema)
-
 app.get("/db", async (req, res) => {
     try {
         const user = await UserModel.find({});
@@ -33,10 +24,9 @@ app.get("/db", async (req, res) => {
 });
 
 
-app.get('/api/v1/users/self/profile', async(req, res)=>{
+app.get('/api/v1', async(req, res)=>{
     try {
         const assignments = [];
-        ///api/v1/users/:user_id/courses/:course_id/assignments
         const get_upcoming_assignments = await fetch(`https://csulb.instructure.com/api/v1/users/self/upcoming_events`, {
             method: 'GET',
             headers: {
@@ -46,8 +36,7 @@ app.get('/api/v1/users/self/profile', async(req, res)=>{
         });
         const ass = await get_upcoming_assignments.json();
         for(var i = 0; i < ass.length; i++){
-            //ass[i]['description'].replace(/<[^>]+>/g, '')
-            assignments.push([ass[i]['title']])
+            assignments.push([ass[i]['title'], ass[i]['description'].replace(/<[^>]+>/g, '')])
         }
         console.log(assignments)
         res.json(assignments);
