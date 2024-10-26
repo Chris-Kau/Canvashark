@@ -18,14 +18,12 @@ hr {
     background-color: #3884ba;
     padding: 8px 8px 8px 8px
 }
-
 .main {
     margin-left: 15%;
     height: 100%;
     width: 100%;
     padding: 0px 0px 0px 1.5%;
 }
-
 .main p{
     color: #3884ba;
     font-size: 24px;
@@ -80,6 +78,11 @@ hr {
     for a softer look */
     cursor: pointer;
     transition: background-color 0.3s;
+}
+.delete-btn {
+    float: right;
+    cursor: pointer;
+    color: #a9aaab
 }
 
 .task {
