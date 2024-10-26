@@ -1,7 +1,7 @@
 const express = require('express');
 const mongoose = require('mongoose');
 require('dotenv').config({path: '../.env'});
-API_TOKEN = process.env.CANVAS_KEY
+API_TOKEN = process.env.ASHLEY_CANVAS_KEY
 
 const app = express();
 app.use(express.json());
@@ -31,24 +31,29 @@ app.use((req, res, next)=>{
 // });
 //==================================================================================
 //==================================================================================
-app.get('/api/v1/courses', async(req, res)=>{
+//courses
+app.get('/api/v1/', async(req, res)=>{
     try {
-        const response = await fetch(`https://csulb.instructure.com/api/v1/courses?access_token=${API_TOKEN}`, {
+        const assignments = [];
+        ///api/v1/users/:user_id/courses/:course_id/assignments
+        const get_upcoming_assignments = await fetch(`https://csulb.instructure.com/api/v1/users/self/upcoming_events`, {
             method: 'GET',
             headers: {
                 'Authorization': `Bearer ${API_TOKEN}`,
                 'Content-Type': 'application/json'
             },
         });
-        const data = await response.json();
-        console.log('User Profile:', data);
-        console.log()
-        res.json(data);
+        const ass = await get_upcoming_assignments.json();
+        for(var i = 0; i < ass.length; i++){
+            //ass[i]['description'].replace(/<[^>]+>/g, '')
+            assignments.push([ass[i]['title']])
+        }
+        console.log(assignments)
+        res.json(assignments);
     } catch (error) {
         console.error('Error fetching user profile:', error);
     }
 });
-
 app.listen(3000, () => {
     console.log("Connected")
 })
