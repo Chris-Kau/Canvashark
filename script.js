@@ -38,8 +38,7 @@ function createTaskElement(content, id) {
     task.innerHTML =
         `${content}
     <span class="delete-btn" 
-        onclick="deleteTask('${taskId}')">
-        
+        onclick="deleteTask('${taskId}')"> X
     </span>`;
     task.addEventListener("dragstart", drag);
     return task;
@@ -77,10 +76,6 @@ function drop(event, columnId) {
         event.target.querySelector('.task-container').
             appendChild(draggedElement);
     }
-}
-
-function capitalizeInput(input) {
-    input.value = input.value.toUpperCase();
 }
 
 function addTask(columnId) {

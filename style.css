@@ -1,7 +1,12 @@
 
 body {
     background-color: #EBEEF1;
-    font-family: Helvetica;
+    font-family: Roboto;
+}
+hr {
+    border-top: 1px solid #a9aaab;
+    margin-bottom: 15px;
+    margin-top: 8px;
 }
 
 .sidenav {
@@ -10,17 +15,21 @@ body {
     top: 0;
     left: 0;
     position: fixed;
-    background-color: #468CBD;
+    background-color: #3884ba;
     padding: 8px 8px 8px 8px
 }
-
 .main {
     margin-left: 15%;
     height: 100%;
     width: 100%;
     padding: 0px 0px 0px 1.5%;
 }
-
+.main p{
+    color: #3884ba;
+    font-size: 24px;
+    margin: 8px;
+    margin-top: 12px;
+}
 
 .column {
     height: 100%;
@@ -28,10 +37,60 @@ body {
     float: left;
     margin: 10px;
     background-color: white;
-    padding: 10px;
-    border-radius: 8px;
+    padding: 16px;
+    padding-top: 12px;
+    border-radius: 8px; /*curve corners*/
 }
 
-.column h2 {
+
+.column h3 {
     font-size: 18px;
+    font-weight: 100;
+    margin: 0;
+    color: #7e7e7e;
+}
+
+
+
+
+/* YAYAYAYAYA */
+
+.task-input {
+    width: 60%;
+    padding: 8px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    margin-bottom: 10px;
+}
+
+.add-task-btn {
+    background-color: #3884ba;
+    border: none;
+    color: white;
+    padding: 5px; /* makes button bigger */
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 14px;
+    /* Decrease font size */
+    border-radius: 5px;
+    /* Adjust border radius 
+    for a softer look */
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+.delete-btn {
+    float: right;
+    cursor: pointer;
+    color: #a9aaab
+}
+
+.task {
+    background-color: white;
+    padding: 10px;
+    border-radius: 2px;
+    margin-bottom: 10px;
+    border: 2px solid #9cc7eb;
+    border-left: 8px solid #9cc7eb;
+    cursor: move;
 }
