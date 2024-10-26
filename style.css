@@ -1,25 +1,37 @@
 
+body {
+    background-color: #EBEEF1;
+    font-family: Helvetica;
+}
+
 .sidenav {
     height: 100%;
     width: 15%;
     top: 0;
     left: 0;
     position: fixed;
-    background-color: #E1E1E1;
+    background-color: #468CBD;
     padding: 8px 8px 8px 8px
 }
 
 .main {
     margin-left: 15%;
     height: 100%;
-    padding: 8px 8px 8px 8px
+    width: 100%;
+    padding: 0px 0px 0px 1.5%;
 }
+
 
 .column {
     height: 100%;
-    width: 30%;
+    width: calc(25% - 20px);
     float: left;
     margin: 10px;
-    border-radius: 10px;
-    background-color: #EBEEF1;
+    background-color: white;
+    padding: 10px;
+    border-radius: 8px;
+}
+
+.column h2 {
+    font-size: 18px;
 }
