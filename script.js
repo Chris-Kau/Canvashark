@@ -79,10 +79,6 @@ function drop(event, columnId) {
     }
 }
 
-function capitalizeInput(input) {
-    input.value = input.value.toUpperCase();
-}
-
 function addTask(columnId) {
     const taskInput =
         document.getElementById('taskInput');

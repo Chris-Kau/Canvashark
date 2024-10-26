@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="style.css">
+    <link href='https://fonts.googleapis.com/css?family=Roboto' rel='stylesheet'>
     <title>Canvashark</title>
 </head>
 
@@ -15,39 +16,35 @@
     </div>
 
     <div class="main">
-        <p>CANVASHARK</p>
+        <p>Canvashark</p>
 
         <div class="kanban">
             <div class="column" id="due-today" ondrop="drop(event, 'due-today')" ondragover="allowDrop(event)">
-                <h2>DUE TODAY</h2>
+                <h3>Due Today</h3>
                 <hr>
-                <p>hi1</p>
+                <div class="task-container"></div>
 
                 <!-- AAAHHHHHH COPYPASTE-->
                 <div class="tasks-in-btn">
                     <input type="text" id="taskInput" class="task-input" 
-                        placeholder="Enter a task..."
-                        oninput="capitalizeInput(this)">
+                        placeholder="Enter a task...">
                     <button class="add-task-btn" onclick="addTask('due-today')">
                         Add Task
                     </button>
                 </div>
 
 
-                <div class="task-container"></div>
             </div>
 
             <div class="column" id="due-soon" ondrop="drop(event, 'due-soon')" ondragover="allowDrop(event)">
-                <h2>DUE SOON</h2>
+                <h3>Due Soon</h3>
                 <hr>
-                <p>hi2</p>
                 <div class="task-container"></div>
             </div>
 
             <div class="column" id="upcoming" ondrop="drop(event, 'upcoming')" ondragover="allowDrop(event)">
-                <h2>UPCOMING</h2>
+                <h3>Upcoming</h3>
                 <hr>
-                <p>hi3</p>
                 <div class="task-container"></div>
             </div>
         </div>
