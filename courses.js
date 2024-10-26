@@ -2,7 +2,6 @@ const course_url = "https://csulb.instructure.com/api/v1/courses";
 
 async function Test(){
     var request = new XMLHttpRequest()
-
     request.open('GET', 'https://ghibli.rest/films', true)
     request.onload = function () {
       // Begin accessing JSON data here
