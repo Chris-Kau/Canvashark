@@ -1,3 +1,5 @@
+require('dotenv').config();
+const API_TOKEN = process.env.CANVAS_KEY;
 async function Test() {
     try {
         // const response = await fetch('https://canvashark.vercel.app/api/v1', {
@@ -21,3 +23,4 @@ async function Test() {
         console.error('Error fetching user profile:', error);
     }
 }
+document.getElementById("bleh").addEventListener("click", Test())
