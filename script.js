@@ -171,7 +171,7 @@ function createTaskElement(content, id, description, date, tag, colname) {
         <h3>${content}</h3>
         <p class="description">${description}</p>
         <p class="date">${date ? new Date(date).toLocaleString() : ""}</p>
-        <span class="tag">${tag ? `${tag}` : ""}</span>  
+        <span class="${(tag ? `${tag}` : "").replace(" ", '')}">${tag ? `${tag}` : ""}</span>  
         <span class="delete-btn" onclick="deleteTask('${id}')">X</span>
         <span class="edit-btn" onclick="editTask('${id}')">EDIT</span>
     `;

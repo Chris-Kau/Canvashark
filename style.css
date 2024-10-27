@@ -179,12 +179,24 @@ h3 {
     color: #7e7e7e;
 }
 
-.tag {
-    background-color: #EBEEF1;
+.Shorttask {
+    /* #EBEEF1 */
+    background-color: #afffb9;
     padding: 2px 5px;
     border-radius: 5px;
     font-size: 14px;
-    
+}
+.Mediumtask {
+    background-color: #ffffa0;
+    padding: 2px 5px;
+    border-radius: 5px;
+    font-size: 14px;
+}
+.Longtask {
+    background-color: #ff7b9c;
+    padding: 2px 5px;
+    border-radius: 5px;
+    font-size: 14px;
 }
 /* .tag-short {
     background: #7e7e7e;
