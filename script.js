@@ -153,6 +153,17 @@ function createTaskElement(content, id, description, date, tag, colname) {
     const task = document.createElement("div");
     const durations = ['Short task', 'Medium task', "Long task"]
     let dindex = durations.indexOf(tag)
+
+    // let tagClass = '';
+    // // Set tag class based on the tag type
+    // if (tag === 'Short task') {
+    //     tagClass = 'tag-short';
+    // } else if (tag === 'Medium task') {
+    //     tagClass = 'tag-medium';
+    // } else if (tag === 'Long task') {
+    //     tagClass = 'tag-long';
+    // }
+
     task.id = id;
     task.className = `task${colname}`;
     task.draggable = true;

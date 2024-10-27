@@ -31,6 +31,7 @@ hr {
     position: fixed;
     background-color: #3884ba;
     padding: 8px 8px 8px 8px;
+    align-items: center;
 }
 .main {
     margin-left: 15%;
@@ -64,20 +65,19 @@ hr {
     width: calc(25% - 20px);
     float: left;
     margin: 10px;
-    /* background-color: rgba(239, 239, 239, 0.414); */
-    /* background-color: #EBEEF1; */
     background-color: white;
     padding: 16px;
     padding-top: 12px;
     border-radius: 5px; /*curve corners*/
 }
-
-
 .column h2 {
     font-size: 18px;
     font-weight: 100;
     margin: 0;
     color: #7e7e7e;
+}
+.column p {
+    padding: 0px 0px 3px; /* top right bottom left */
 }
 
 
@@ -179,6 +179,26 @@ h3 {
     color: #7e7e7e;
 }
 
+.tag {
+    background-color: #EBEEF1;
+    padding: 2px 5px;
+    border-radius: 5px;
+    font-size: 14px;
+    
+}
+/* .tag-short {
+    background: #7e7e7e;
+}
+.tag-medium {
+    background-color: #9CE2EB;
+    color: #333;
+    padding: 3px 6px;
+    border-radius: 4px;
+    font-size: 12px;
+}
+.tag-long {
+    background-color: #3884ba;
+} */
 
 
 /* Modal stuffs below */
@@ -224,6 +244,18 @@ h3 {
     cursor: pointer;
 }
 
+
+#addStickyNote {
+    /* vertical-align: middle; */
+    margin-top: 20px;
+    font-size: 14px;
+    padding: 6px 5px;
+    border-radius: 5px;
+    background-color: white;
+    border-color: #9cc7eb;
+    width: 50%;
+}
+
 /* Sticky notes */
 #stickyNote{
     position: absolute;
@@ -267,7 +299,7 @@ h3 {
     resize: none;
 }
 #closeButton {
-    color: #ff5c5c;
+    color: #a9aaab;
     font-weight: bold;
     cursor: pointer;
     margin-right: 5px;
