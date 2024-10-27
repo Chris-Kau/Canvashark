@@ -4,7 +4,7 @@ html, body {
     overflow-x: hidden;
 }
 body {
-    /* background-color: #EBEEF1; */
+    background-color: #EBEEF1;
     font-family: Roboto;
 }
 hr {
@@ -65,10 +65,12 @@ hr {
     width: calc(25% - 20px);
     float: left;
     margin: 10px;
-    background-color: rgba(239, 239, 239, 0.414);
+    /* background-color: rgba(239, 239, 239, 0.414); */
+    /* background-color: #EBEEF1; */
+    background-color: white;
     padding: 16px;
     padding-top: 12px;
-    border-radius: 8px; /*curve corners*/
+    border-radius: 5px; /*curve corners*/
 }
 
 
@@ -78,8 +80,6 @@ hr {
     margin: 0;
     color: #7e7e7e;
 }
-
-
 
 
 
@@ -135,17 +135,17 @@ hr {
     padding: 10px;
     border-radius: 2px;
     margin-bottom: 10px;
-    border: 2px solid #cde6fa;
-    border-left: 10px solid #cde6fa;
-    cursor: move;
+    border: 2px solid #9CE2EB;
+    border-left: 10px solid #9CE2EB;
+    cursor: move;   
 }
 .taskDone {
     background-color: white;
     padding: 10px;
     border-radius: 2px;
     margin-bottom: 10px;
-    border: 2px solid #d4fdf8;
-    border-left: 10px solid #d4fdf8;
+    border: 2px solid #9CEBC3;
+    border-left: 10px solid #9CEBC3;
     cursor: move;
 }
 
@@ -169,6 +169,7 @@ h3 {
     font-size: 14px;
     margin: 2px;
 }
+
 .taskTodo .description {
     color: #7e7e7e;
 }
