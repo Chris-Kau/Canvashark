@@ -4,13 +4,23 @@ html, body {
     overflow-x: hidden;
 }
 body {
-    background-color: #EBEEF1;
+    /* background-color: #EBEEF1; */
     font-family: Roboto;
 }
 hr {
     border-top: 1px solid #a9aaab;
     margin-bottom: 15px;
     margin-top: 8px;
+}
+
+.frontpage {
+    display: flex;
+    justify-content: center;
+}
+
+.frontpage-p {
+    display: flex;
+    text-align: center;
 }
 
 .sidenav {

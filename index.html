@@ -3,12 +3,50 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Assignment Dashboard</title>
+    <style>
+        /* Centers all content in the body */
+        body {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            min-height: 100vh; /* Full height */
+            margin: 0; /* Remove default margin */
+            font-family: Arial, sans-serif;
+            background: linear-gradient(#4A90E2, #9013FE);
+            color: #ffffff;
+        }
+
+        /* Centers content inside the main div */
+        .frontpage {
+            text-align: center;
+            max-width: 600px; /* Limits width for readability */
+            padding: 20px;
+        }
+
+        li {
+            text-align: left;
+        }
+    </style>
 </head>
 <body>
-    <a href="kanban.html">Kanban Board Here</a>
-    <button id = "bleh">CLICK ME! BLEHH</button>
-
-    <!--idk make stuff on here-->
+    <div class="frontpage">
+        <a href="kanban.html">Kanban Board Here</a>
+        <h1>Introduction</h1>
+        <p>This project uses the Canvas API to pull in your assignments, functioning as both a to-do list and a Kanban board with a sticky note feature. You can also edit task information as needed.</p>
+        
+        <h3>How to grab your Canvas API token:</h3>
+        <ol>
+            <li>Log onto your Canvas account.</li>
+            <li>Click on "Account" to open the menu.</li>
+            <li>Select "Settings" and scroll to the "Approved Integrations" section.</li>
+            <li>Click "New Access Token," input a name for the token (expiration date is optional), and generate the token.</li>
+            <li>Enter the generated token in the field below.</li>
+        </ol>
+        
+        <label for="inputToken">Canvas Access Token:</label>
+        <input type="password" id="inputToken" aria-label="Canvas Access Token">
+        <button id="importButton" onClick="importedCanvasAssignments()">IMPORT CANVAS</button>
+    </div>
 </body>
 </html>
