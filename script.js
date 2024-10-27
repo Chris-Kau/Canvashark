@@ -194,3 +194,4 @@ function importedCanvasAssignments(){
     updateLocalStorage();
     // renderTasks();
 }
+}
