@@ -23,4 +23,4 @@ async function Test() {
         console.error('Error fetching user profile:', error);
     }
 }
-document.getElementById("bleh").addEventListener("click", Test())
+document.getElementById("bleh").addEventListener("click", Test)
