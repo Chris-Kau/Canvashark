@@ -178,6 +178,7 @@ h3 {
     background-color: rgba(0, 0, 0, 0.5); /* Black background with opacity */
 }
 .modal-content {
+    z-index: 1000;
     background-color: white;
     margin: 15% auto;
     padding: 8px 25px 20px 25px; /* top right bottom left */
