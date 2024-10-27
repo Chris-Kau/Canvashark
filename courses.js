@@ -1,19 +1,15 @@
 async function Test() {
-    let get_token = document.getElementById("inputToken")
-    let API_TOKEN = get_token.value
+    const API_TOKEN = document.getElementById("inputToken").value;
     try {
-        const response = await fetch(`/api/v1/users/self/upcoming_events?token=${API_TOKEN}`, {
-            method: 'GET',
-        });
+        const response = await fetch(`/api/upcoming_events?token=${API_TOKEN}`);
         if (!response.ok) {
             console.error(`Error: ${response.status} ${response.statusText}`);
             return;
         }
-
         const data = await response.json();
-        console.log('User Profile courses:', data);
+        console.log('Upcoming events:', data);
     } catch (error) {
-        console.error('Error fetching user profile:', error);
+        console.error('Error fetching upcoming events:', error);
     }
 }
 document.getElementById("importButton").addEventListener("click", Test)
