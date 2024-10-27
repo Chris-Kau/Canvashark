@@ -7,7 +7,6 @@ async function Test() {
             return;
         }
         const data = await response.json();
-        localStorage.removeItem('upcomingEvents');
         localStorage.setItem('upcomingEvents', JSON.stringify(data))
         //console.log('Upcoming events:', data);
         return data;

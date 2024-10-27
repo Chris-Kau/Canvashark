@@ -99,6 +99,8 @@ function clearModalFields() {
 
 function createTaskElement(content, id, description, date, tag) {
     const task = document.createElement("div");
+    const durations = ['Short task', 'Medium task', "Long task"]
+    let dindex = durations.indexOf(tag)
     task.id = id;
     task.className = "task";
     task.draggable = true;
@@ -106,12 +108,10 @@ function createTaskElement(content, id, description, date, tag) {
         <h3>${content}</h3>
         <p class="description">${description}</p>
         <p class="date">${date ? new Date(date).toLocaleString() : ""}</p>
-        <span class="tag">${tag ? `${tag}` : ""}</span>
         <Select id="changeTaskTag" onChange="updateTaskTag('${id}', this.value)">
-            <option value="">Change</option>
-            <option value="Short task">Short task</option>
-            <option value="Medium task">Medium task</option>
-            <option value="Long task">Long task</option>
+            <option value="${durations[dindex]}">${durations[dindex]}</option>
+            <option value="${durations[(dindex + 1) % 3]}">${durations[(dindex + 1) % 3]}</option>
+            <option value="${durations[(dindex + 2) % 3]}">${durations[(dindex + 2) % 3]}</option>
         </Select>
         <span class="delete-btn" onclick="deleteTask('${id}')">X</span>
     `;
@@ -222,6 +222,7 @@ function updateLocalStorage() {
 
 function importedCanvasAssignments(){
     const data = JSON.parse(localStorage.getItem('upcomingEvents'));
+    console.log(data);
     for(var i =0; i < data.length; i++){
         const title = data[i][0]
         const description = data[i][1]
@@ -241,11 +242,5 @@ function importedCanvasAssignments(){
             updateLocalStorage();
             renderTasks();
     }
-
-    upcomingEvents.push(data);
-    console.log(upcomingEvents);
-    updateLocalStorage();
-    renderTasks();
-    upcomingEvents = []
 }
 }
