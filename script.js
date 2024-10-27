@@ -189,13 +189,12 @@ function importedCanvasAssignments(){
         const title = data[i][0]
         const description = data[i][1]
         const date = data[i][2].toLocaleString('en-US')
-        
         const tag = "Short task"
         const status = "Todo"
     
         if (title !== "") {
             const newTask = {
-                id: "task-" + Date.now(),
+                id: "task-" + data[i][3],
                 content: title,
                 description: description,
                 date: date,
