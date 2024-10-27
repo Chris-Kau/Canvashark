@@ -92,10 +92,17 @@ hr {
     transform: scale(1.1);
 }
 
+
 .delete-btn {
     float: right;
     cursor: pointer;
     color: #a9aaab;
+}
+
+.edit-btn {
+    float: right;
+    margin-right: 15px;
+    cursor: pointer;
 }
 
 .task {
