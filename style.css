@@ -181,19 +181,19 @@ h3 {
 
 .Shorttask {
     /* #EBEEF1 */
-    background-color: #afffb9;
+    background-color: #e4ffe8;
     padding: 2px 5px;
     border-radius: 5px;
     font-size: 14px;
 }
 .Mediumtask {
-    background-color: #ffffa0;
+    background-color: #ffffc7;
     padding: 2px 5px;
     border-radius: 5px;
     font-size: 14px;
 }
 .Longtask {
-    background-color: #ff7b9c;
+    background-color: #ffc0d0;
     padding: 2px 5px;
     border-radius: 5px;
     font-size: 14px;
