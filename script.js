@@ -207,7 +207,6 @@ function importedCanvasAssignments(){
     }
     upcomingEvents.push(data);
     updateLocalStorage();
-    upcomingEvents = [];
     // renderTasks();
 }
 }
