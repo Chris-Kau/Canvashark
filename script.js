@@ -80,8 +80,11 @@ function addTaskWithDetails() {
     const title = document.getElementById("taskTitle").value.trim();
     const description = document.getElementById("taskDescription").value.trim();
     const date = document.getElementById("taskDate").value;
-    const tag = document.getElementById("taskTag").value.trim();
+    var tag = document.getElementById("taskTag").value.trim();
     // const status = compareDateToToday(date)
+    if (tag === "") {
+        tag = "Short task"
+    }
 
     if (title !== "") {
         const newTask = {
