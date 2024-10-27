@@ -194,7 +194,7 @@ function importedCanvasAssignments(){
     
         if (title !== "") {
             const newTask = {
-                id: "task-" + data[i][3],
+                id: "task-" + Date.now(),
                 content: title,
                 description: description,
                 date: date,
