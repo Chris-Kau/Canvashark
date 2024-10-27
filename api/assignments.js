@@ -13,7 +13,7 @@ app.use((req, res, next)=>{
     next();
 });
 
-app.get('/', async(req, res)=>{
+app.get('/api/v1', async(req, res)=>{
     try {
         const assignments = [];
         const get_upcoming_assignments = await fetch(`https://csulb.instructure.com/api/v1/users/self/upcoming_events`, {
