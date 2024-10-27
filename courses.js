@@ -8,7 +8,7 @@ async function Test() {
             return;
         }
         const data = await response.json();
-        console.log(`COURSES: ${data}`)
+        //console.log(`COURSES: ${data}`)
         localStorage.setItem('upcomingEvents', JSON.stringify(data))
         //console.log('Upcoming events:', data);
         return data;
