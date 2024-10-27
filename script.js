@@ -165,7 +165,7 @@ function updateLocalStorage() {
     localStorage.setItem
         ('tasks', JSON.stringify(tasks));
     localStorage.setItem
-        ('upcomingEvents', Json.stringify(upcomingEvents))
+        ('upcomingEvents', JSON.stringify(upcomingEvents))
 }
 
 function importedCanvasAssignments(){
