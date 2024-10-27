@@ -28,11 +28,20 @@
         li {
             text-align: left;
         }
+        .changePageBtn {
+            padding: 15px 20px;
+            margin-top: 5%;
+            background-color: white;
+            border-radius: 20px;
+            transition: background-color 0.3s;
+        }
+        .changePageBtn.changePageBtn:hover{
+            transform: scale(1.1);
+        }
     </style>
 </head>
 <body>
     <div class="frontpage">
-        <a href="kanban.html" style="color: white">Kanban Board Here</a>
         <h1>Introduction</h1>
         <p>This project uses the Canvas API to pull in your assignments, functioning as both a to-do list and a Kanban board with a sticky note feature. You can also edit task information as needed.</p>
         
@@ -46,7 +55,7 @@
         </ol>
         
         <a href="kanban.html">
-            <button id="importButton" >CLICK HERE TO TRY</button>
+            <button class="changePageBtn">CLICK HERE TO TRY</button>
         </a>
     </div>
 </body>
