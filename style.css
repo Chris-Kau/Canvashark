@@ -32,6 +32,7 @@ hr {
     background-color: #3884ba;
     padding: 8px 8px 8px 8px;
     align-items: center;
+    flex-direction: column;
 }
 .main {
     margin-left: 15%;
@@ -270,18 +271,22 @@ h3 {
 
 /* Sticky notes */
 #addStickyNote {
-    /* vertical-align: middle; */
+    /* vertical-align: bottom; */
     display: block;
-    /* margin-top: 60px; */
-    margin-left: auto;
-    margin-right: auto;
+    /* position: static; */
+    /* margin-top: 100%; */
+    /* margin: auto; */
+    position: absolute;
+    justify-content: center;
     font-size: 16px;
     padding: 8px 5px;
     border-radius: 5px;
     background-color: white;
     border-color: #9cc7eb;
     width: 60%;
-    bottom: 5%;
+    left: 0;
+    bottom: 3%;
+    margin: 20%;
 }
 
 #importButton {
@@ -291,7 +296,7 @@ h3 {
     margin-left: auto;
     margin-right: auto;
     font-size: 16px;
-    padding: 10px 5px;
+    padding: 5px 0px;
     border-radius: 5px;
     background-color: white;
     width: 80%;
