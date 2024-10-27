@@ -1,4 +1,4 @@
-require('dotenv').config();
+//require('dotenv').config();
 const API_TOKEN = process.env.CANVAS_KEY;
 async function Test() {
     try {
