@@ -48,8 +48,13 @@ hr {
 }
 
 .title-btn-holder {
+    display: flex;
     justify-content: space-between;
+    padding-right: 10%;
+    width: 80%;
 }
+
+
 
 .main-title {
     float: left;
@@ -60,7 +65,7 @@ hr {
     width: calc(25% - 20px);
     float: left;
     margin: 10px;
-    background-color: white;
+    background-color: rgba(239, 239, 239, 0.414);
     padding: 16px;
     padding-top: 12px;
     border-radius: 8px; /*curve corners*/
