@@ -189,8 +189,6 @@ function importedCanvasAssignments(){
         const date = (data[i][2].replace("T", " ")).replace("Z", "")
         const tag = "Short task"
         const status = compareDateToToday(date)
-        
-
     
         if (title !== "") {
             const newTask = {
@@ -205,7 +203,7 @@ function importedCanvasAssignments(){
             updateLocalStorage();
             renderTasks();
     }
-    upcomingEvents.push(data);
+    upcomingEvents = []
     updateLocalStorage();
     // renderTasks();
 }
