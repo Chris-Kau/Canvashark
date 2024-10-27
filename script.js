@@ -172,7 +172,7 @@ function compareDateToToday(date){
     let date1 = new Date(Date.now())
     let date2 = new Date(date)
     let Difference_In_Days = Math.round((date2.getTime() - date1.getTime()) / (1000 * 3600 * 24));
-    if (Difference_In_Days == 1){
+    if (Difference_In_Days <= 3 && Difference_In_Days >= 1){
         return "due-soon"
     }else if(Difference_In_Days < 1){
         return "due-today"
@@ -186,7 +186,7 @@ function importedCanvasAssignments(){
     for(var i =0; i < data.length; i++){
         const title = data[i][0]
         const description = data[i][1]
-        const date = (data[i][2].replace("T", " ")).replace("Z", "")
+        const date = data[i][2].toLocaleString('en-US')
         const tag = "Short task"
         const status = compareDateToToday(date)
     
@@ -203,8 +203,9 @@ function importedCanvasAssignments(){
             updateLocalStorage();
             renderTasks();
     }
-    upcomingEvents = []
+    upcomingEvents.push(data);
     updateLocalStorage();
+    upcomingEvents = [];
     // renderTasks();
 }
 }
