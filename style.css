@@ -181,36 +181,23 @@ h3 {
 
 .Shorttask {
     /* #EBEEF1 */
-    background-color: #e4ffe8;
+    background-color: #F6F0BB;
     padding: 2px 5px;
     border-radius: 5px;
     font-size: 14px;
 }
 .Mediumtask {
-    background-color: #ffffc7;
+    background-color: #F7D3BC;
     padding: 2px 5px;
     border-radius: 5px;
     font-size: 14px;
 }
 .Longtask {
-    background-color: #ffc0d0;
+    background-color: #F6C2D4;
     padding: 2px 5px;
     border-radius: 5px;
     font-size: 14px;
 }
-/* .tag-short {
-    background: #7e7e7e;
-}
-.tag-medium {
-    background-color: #9CE2EB;
-    color: #333;
-    padding: 3px 6px;
-    border-radius: 4px;
-    font-size: 12px;
-}
-.tag-long {
-    background-color: #3884ba;
-} */
 
 
 /* Modal stuffs below */
