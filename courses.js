@@ -1,6 +1,6 @@
 async function Test(){
   try {
-    const response = await fetch('http://localhost:3000/api/v1/', {
+    const response = await fetch('https://canvashark.vercel.app/api/v1/', {
         method: 'GET',
     });
 
