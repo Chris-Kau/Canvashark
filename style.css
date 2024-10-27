@@ -5,7 +5,7 @@ html, body {
 }
 body {
     background-color: #EBEEF1;
-    font-family: Roboto;
+    font-family: "Inter", sans-serif;
 }
 hr {
     border-top: 1px solid #a9aaab;
@@ -80,7 +80,7 @@ hr {
 }
 .column h2 {
     font-size: 18px;
-    font-weight: 100;
+    font-weight: normal;
     margin: 0;
     color: #7e7e7e;
 }
@@ -158,7 +158,7 @@ hr {
 
 h3 {
     font-size: 16px;
-    font-weight: 100;
+    font-weight: normal;
     margin: 2px;
 }
 .taskTodo p {
