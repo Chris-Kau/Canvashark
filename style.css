@@ -185,7 +185,15 @@ h3 {
     max-width: 500px;
     border-radius: 8px;
     box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.5);
-
+}
+.stickyNote-modal-content {
+    background-color: white;
+    margin: 15% auto;
+    padding: 8px 25px 20px 25px; /* top right bottom left */
+    width: 80%;
+    max-width: 250px;
+    border-radius: 8px;
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.5);
 }
 .modal-input {
     width: 95%;
@@ -223,7 +231,8 @@ h3 {
     font-size: 20px;
     text-align: left;
     background-color: #fffd85;
-    box-shadow: 1px 2px 4px #b0b0b064
+    box-shadow: 1px 2px 4px #b0b0b064;
+    filter: brightness(0.9); /* Darken the header */
 }
 #stickyNoteInput {
     flex-grow: 1; /* Fills remaining space */
@@ -251,4 +260,18 @@ h3 {
 }
 #closeButton:hover{
     transform: scale(1.3);
+}
+.squareButton {
+    width: 40px; 
+    height: 40px; 
+    border-radius: 5px; 
+    cursor: pointer; 
+    margin: 5px; /* Optional: adds space between buttons */
+}
+.colorHolder{
+    display: flex;                /* Use flexbox */
+    justify-content: center;      /* Center items horizontally */
+    align-items: center;          /* Center items vertically */
+    flex-wrap: wrap;              /* Allow buttons to wrap */
+    margin: 10px 0;              /* Space above and below */
 }

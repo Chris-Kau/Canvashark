@@ -13,7 +13,20 @@
         <a href="index.html">CANVASHARK</a>
         <input type="password" id = "inputToken">
         <button id = "importButton" onClick = "importedCanvasAssignments()">IMPORT CANVAS</button>
-        <!-- chatbox also goes here -->
+        <button id = "addStickyNote" onClick = openStickyNoteModal()>&plus; Sticky Note</button>
+        <!--Add Sticky Note Modal-->
+        <div id="stickyNoteModal" class="modal">
+            <div class="stickyNote-modal-content">
+                <span class="close" onclick="closeStickyNoteModal()">&times;</span>
+                <h2>Add New Sticky Note</h2>
+                <p>Choose Color:</p>
+                <div id="colorHolder">
+                    <button class="squareButton" style = "background-color: #fffd85" onClick = "createStickyNote('#fffd85'); closeStickyNoteModal()"></button>
+                    <button class="squareButton" style = "background-color: #93ffef" onClick = "createStickyNote('#93ffef'); closeStickyNoteModal()"></button>
+                    <button class="squareButton" style = "background-color: #e9aeff" onClick = "createStickyNote('#e9aeff'); closeStickyNoteModal()"></button>
+                </div>
+            </div>
+        </div>
     </div>
 
     <div class="main">
@@ -36,21 +49,6 @@
                 <!-- yayaya modal !! -->
                 <div id="taskModal" class="modal">
                     <div class="modal-content">
-                        <span class="close" onclick="closeTaskModal()">&times;</span>
-                        <h2>Add New Task</h2>
-                        <input type="text" id="taskTitle" placeholder="Enter task title..." class="modal-input">
-                        <textarea id="taskDescription" placeholder="Enter task description..." class="modal-input"></textarea>
-                        <input type="datetime-local" id="taskDate" class="modal-input">
-                        <!-- <input type="text" id="taskTag" placeholder="Enter a tag..." class="modal-input"> -->
-                        <label for="taskTag">Estimated length of Completion:</label>
-                        <select id="taskTag">
-                            <option value="Short task">Short task</option>
-                            <option value="Medium task">Medium task</option>
-                            <option value="Long task">Long task</option>
-                        </select>
-                        <!-- br is used to put the add task button on a new line -->
-                        <br></br> 
-                        <button onclick="addTaskWithDetails()">Add Task</button>
                     </div>
                 </div>
                 <!-- <button class="add-task-btn" onclick="openModal()">Add Task</button> -->
@@ -100,19 +98,8 @@
         </div>
 
     </div>
-
-    <div id="stickyNote">
-        <div id="stickyNoteHeader">
-            =&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Sticky Note
-            <span id="closeButton">&times;</span>
-        </div>
-        <div id="stickyNoteInput">
-            <textarea id="stickyTextArea"></textarea>
-        </div>
-    </div>
-        
-
       </div>
+    <div id="stickyNotesContainer"></div>
     <script src = "script.js"></script>
     <script src = "courses.js"></script>
     <script src = "stickynotes.js"></script>
