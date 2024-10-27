@@ -1,5 +1,5 @@
 async function callOpenAI(prompt) {
-    const response = await fetch('/api/openai', {
+    const response = await fetch('/api/ChatAI', {
         method: 'POST',
         headers: {
             'Content-Type': 'application/json',
