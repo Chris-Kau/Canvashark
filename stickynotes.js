@@ -1,9 +1,3 @@
-
-
-document.getElementById("closeButton").addEventListener("click", function () {
-    document.getElementById("stickyNote").style.display = "none";
-});
-
 function openStickyNoteModal() {
     document.getElementById("stickyNoteModal").style.display = "block";
 }

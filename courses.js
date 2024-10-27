@@ -1,5 +1,6 @@
 async function Test() {
-    const API_TOKEN = document.getElementById("inputToken").value;
+    const API_TOKEN = window.getCanvasAccessToken(); // Access the global function
+    console.log("Access Token in another file:", accessToken);
     try {
         const response = await fetch(`/api/assignments?token=${API_TOKEN}`);
         if (!response.ok) {
@@ -14,4 +15,4 @@ async function Test() {
         console.error('Error fetching upcoming events:', error);
     }
 }
-document.getElementById("importButton").addEventListener("click", Test)
+//document.getElementById("importButton").addEventListener("click", Test)
