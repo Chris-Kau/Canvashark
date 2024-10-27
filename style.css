@@ -76,6 +76,12 @@ hr {
     cursor: pointer;
     transition: background-color 0.3s;
 }
+
+.add-task-btn:hover {
+    /* background-color: #5ea6d9; */
+    transform: scale(1.1);
+}
+
 .delete-btn {
     float: right;
     cursor: pointer;

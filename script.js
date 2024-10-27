@@ -78,9 +78,12 @@ function createTaskElement(content, id, description, date, tag) {
         <h3>${content}</h3>
         <p class="description">${description}</p>
         <p class="date">${date ? new Date(date).toLocaleString() : ""}</p>
-        <p class="tag">${tag ? `${tag}` : ""}</p>
+        <span class="tag">${tag ? `${tag}` : ""}</span>
         <span class="delete-btn" onclick="deleteTask('${id}')">X</span>
     `;
+    // <p class="tag">${tag ? `${tag}` : ""}</p>
+    // <span class="delete-btn" onclick="deleteTask('${id}')">X</span>
+    const deleteBtn = document.create
     task.addEventListener("dragstart", drag);
     return task;
 }

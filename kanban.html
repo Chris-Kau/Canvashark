@@ -34,7 +34,15 @@
                         <input type="text" id="taskTitle" placeholder="Enter task title..." class="modal-input">
                         <textarea id="taskDescription" placeholder="Enter task description..." class="modal-input"></textarea>
                         <input type="datetime-local" id="taskDate" class="modal-input">
-                        <input type="text" id="taskTag" placeholder="Enter a tag..." class="modal-input">
+                        <!-- <input type="text" id="taskTag" placeholder="Enter a tag..." class="modal-input"> -->
+                        <label for="taskTag">Priority Level:</label>
+                        <select id="taskTag">
+                            <option value="Short task">Short task</option>
+                            <option value="Medium task">Medium tas</option>
+                            <option value="Long task">Long task</option>
+                        </select>
+                        <!-- br is used to put the add task button on a new line -->
+                        <br></br> 
                         <button onclick="addTaskWithDetails()">Add Task</button>
                     </div>
                 </div>
