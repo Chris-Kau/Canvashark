@@ -169,18 +169,19 @@ function updateLocalStorage() {
         ('upcomingEvents', JSON.stringify(upcomingEvents))
 }
 
-function compareDateToToday(date){
-    let date1 = new Date(Date.now())
-    let date2 = new Date(date)
-    let Difference_In_Days = Math.round((date2.getTime() - date1.getTime()) / (1000 * 3600 * 24));
-    if (Difference_In_Days <= 3 && Difference_In_Days >= 1){
-        return "due-soon"
-    }else if(Difference_In_Days < 1){
-        return "due-today"
-    }else{
-        return "upcoming"
-    }
-}
+// function compareDateToToday(date){
+//     let date1 = new Date(Date.now())
+//     let date2 = new Date(date)
+//     let Difference_In_Days = Math.round((date2.getTime() - date1.getTime()) / (1000 * 3600 * 24));
+//     if (Difference_In_Days <= 3 && Difference_In_Days >= 1){
+//         return "due-soon"
+//     }else if(Difference_In_Days < 1){
+//         return "due-today"
+//     }else{
+//         return "upcoming"
+//     }
+// }
+
 function importedCanvasAssignments(){
     const data = JSON.parse(localStorage.getItem('upcomingEvents'));
     console.log(data)
@@ -189,7 +190,7 @@ function importedCanvasAssignments(){
         const description = data[i][1]
         const date = data[i][2].toLocaleString('en-US')
         const tag = "Short task"
-        const status = compareDateToToday(date)
+        const status = "todo"
     
         if (title !== "") {
             const newTask = {
