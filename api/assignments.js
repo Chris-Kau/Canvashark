@@ -14,7 +14,7 @@ app.use((req, res, next)=>{
     next();
 });
 
-app.get('/api/v1', async(req, res)=>{
+app.get('/api/v1', async(req, res) => {
     try {
         const assignments = [];
         const get_upcoming_assignments = await fetch(`https://csulb.instructure.com/api/v1/users/self/upcoming_events`, {
@@ -24,14 +24,19 @@ app.get('/api/v1', async(req, res)=>{
                 'Content-Type': 'application/json'
             },
         });
-        const ass = await get_upcoming_assignments.json();
-        for(var i = 0; i < ass.length; i++){
-            assignments.push([ass[i]['title'], ass[i]['description'].replace(/<[^>]+>/g, '')])
+        
+        const rawResponse = await get_upcoming_assignments.text(); // Get raw response
+        console.log('Raw response:', rawResponse); // Log raw response
+        
+        const ass = JSON.parse(rawResponse); // Parse it as JSON after checking
+        for (var i = 0; i < ass.length; i++) {
+            assignments.push([ass[i]['title'], ass[i]['description'].replace(/<[^>]+>/g, '')]);
         }
-        console.log(assignments)
+        console.log(assignments);
         res.json(assignments);
     } catch (error) {
         console.error('Error fetching user profile:', error);
+        res.status(500).json({ error: 'Internal Server Error' });
     }
 });
 
