@@ -24,10 +24,6 @@ export default async function handler(req, res) {
             res.status(200).json(assignments); // Send JSON response
         } catch (error) {
             console.error('Error fetching user profile:', error);
-            res.status(500).json({ error: 'Internal Server Error' });
         }
-    } else {
-        res.setHeader('Allow', ['GET']);
-        res.status(405).end(`Method ${req.method} Not Allowed`);
     }
 }
