@@ -46,7 +46,7 @@ function addTaskWithDetails() {
     const description = document.getElementById("taskDescription").value.trim();
     const date = document.getElementById("taskDate").value;
     const tag = document.getElementById("taskTag").value.trim();
-    const status = compareDateToToday(date)
+    // const status = compareDateToToday(date)
 
     if (title !== "") {
         const newTask = {
@@ -55,7 +55,7 @@ function addTaskWithDetails() {
             description: description,
             date: date,
             tag: tag,
-            status: status // Default to 'due-today' or modify as needed
+            status: "Todo" // Default to 'Todo' or modify as needed
         };
         tasks.push(newTask);
         updateLocalStorage();
