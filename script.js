@@ -75,10 +75,10 @@ function createTaskElement(content, id, description, date, tag) {
     task.className = "task";
     task.draggable = true;
     task.innerHTML = `
-        <p>${content}</p>
+        <h3>${content}</h3>
         <p class="description">${description}</p>
         <p class="date">${date ? new Date(date).toLocaleString() : ""}</p>
-        <p class="tag">${tag ? `#${tag}` : ""}</p>
+        <p class="tag">${tag ? `${tag}` : ""}</p>
         <span class="delete-btn" onclick="deleteTask('${id}')">X</span>
     `;
     task.addEventListener("dragstart", drag);

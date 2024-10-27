@@ -47,12 +47,13 @@ hr {
 }
 
 
-.column h3 {
+.column h2 {
     font-size: 18px;
     font-weight: 100;
     margin: 0;
     color: #7e7e7e;
 }
+
 
 
 
@@ -90,6 +91,12 @@ hr {
     border-left: 10px solid #9cc7eb;
     cursor: move;
 }
+
+h3 {
+    font-size: 16px;
+    font-weight: 100;
+    margin: 2px;
+}
 .task p {
     color: black;
     font-size: 14px;
@@ -115,14 +122,15 @@ hr {
 .modal-content {
     background-color: white;
     margin: 15% auto;
-    padding: 20px;
+    padding: 8px 25px 20px 25px; /* top right bottom left */
     width: 80%;
     max-width: 500px;
     border-radius: 8px;
     box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.5);
+
 }
 .modal-input {
-    width: 100%;
+    width: 95%;
     padding: 10px;
     margin: 10px 0;
     border: 1px solid #ccc;
@@ -130,6 +138,6 @@ hr {
 }
 .close {
     float: right;
-    font-size: 14px;
+    font-size: 20px;
     cursor: pointer;
 }
