@@ -60,11 +60,20 @@ function renderTasks() {
 
 
 // modal stuffs -------
-function openModal() {
+function openTaskModal() {
     document.getElementById("taskModal").style.display = "block";
 }
-function closeModal() {
+
+function openEditModal() {
+    document.getElementById("editModal").style.display = "block";
+}
+
+function closeTaskModal() {
     document.getElementById("taskModal").style.display = "none";
+}
+
+function closeEditModal() {
+    document.getElementById("editModal").style.display = "none";
 }
 
 function addTaskWithDetails() {
@@ -86,18 +95,58 @@ function addTaskWithDetails() {
         tasks.push(newTask);
         updateLocalStorage();
         renderTasks();
-        closeModal();
-        clearModalFields();
+        closeTaskModal();
+        clearTaskModalFields();
     }
 }
-function clearModalFields() {
+
+function editTaskWithDetails() {
+    const title = document.getElementById("editTitle").value.trim();
+    const description = document.getElementById("editDescription").value.trim();
+    const date = document.getElementById("editDate").value;
+    const tag = document.getElementById("editTag").value.trim();
+    const id = document.getElementById("editTag").className
+    const task = getTasks(id)
+    console.log(task)
+
+    
+    tasks = tasks.map(task => {
+        if (task.id === id) {
+            return {
+                content: title,
+                date: date,
+                description: description,
+                id: task.id,
+                status: task.status,
+                tag: tag
+            }; // Update task
+        }
+        return task;
+    });
+    updateLocalStorage();
+    renderTasks();
+    closeEditModal();
+    clearEditModalFields();
+}
+
+
+function clearTaskModalFields() {
     document.getElementById("taskTitle").value = "";
     document.getElementById("taskDescription").value = "";
     document.getElementById("taskDate").value = "";
     document.getElementById("taskTag").value = "";
 }
 
-function createTaskElement(content, id, description, date, tag, colname) {
+function clearEditModalFields() {
+    document.getElementById("editTitle").value = "";
+    document.getElementById("editDescription").value = "";
+    document.getElementById("editDate").value = "";
+    document.getElementById("editTag").value = "";
+}
+
+
+
+function createTaskElement(content, id, description, date, tag) {
     const task = document.createElement("div");
     const durations = ['Short task', 'Medium task', "Long task"]
     let dindex = durations.indexOf(tag)
@@ -108,13 +157,15 @@ function createTaskElement(content, id, description, date, tag, colname) {
         <h3>${content}</h3>
         <p class="description">${description}</p>
         <p class="date">${date ? new Date(date).toLocaleString() : ""}</p>
-        <Select id="changeTaskTag" onChange="updateTaskTag('${id}', this.value)">
-            <option value="${durations[dindex]}">${durations[dindex]}</option>
-            <option value="${durations[(dindex + 1) % 3]}">${durations[(dindex + 1) % 3]}</option>
-            <option value="${durations[(dindex + 2) % 3]}">${durations[(dindex + 2) % 3]}</option>
-        </Select>
+        <span class="tag">${tag ? `${tag}` : ""}</span>  
         <span class="delete-btn" onclick="deleteTask('${id}')">X</span>
+        <span class="edit-btn" onclick="editTask('${id}')">EDIT</span>
     `;
+    //<Select id="changeTaskTag" onChange="updateTaskTag('${id}', this.value)">
+    //     <option value="${durations[dindex]}">${durations[dindex]}</option>
+    //     <option value="${durations[(dindex + 1) % 3]}">${durations[(dindex + 1) % 3]}</option>
+    //     <option value="${durations[(dindex + 2) % 3]}">${durations[(dindex + 2) % 3]}</option>
+    // </Select>
     // <p class="tag">${tag ? `${tag}` : ""}</p>
     // <span class="delete-btn" onclick="deleteTask('${id}')">X</span>
     const deleteBtn = document.create
@@ -122,8 +173,18 @@ function createTaskElement(content, id, description, date, tag, colname) {
     return task;
 }
 
-function myfunc() {
-    console.log("yup it changed")
+function editTask(id) {
+    console.log(id)
+    const task = getTasks(id)
+    console.log(task)
+    
+    openEditModal()
+    // const title = document.getElementById("editTitle").value.trim();
+    document.getElementById("editTitle").value = task.content;
+    document.getElementById("editDescription").value = task.description;
+    document.getElementById("editDate").value = task.date;
+    document.getElementById("editTag").value = task.tag;
+    document.getElementById("editTag").className = task.id;
 }
 // -----
 
