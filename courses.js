@@ -7,7 +7,9 @@ async function Test() {
             return;
         }
         const data = await response.json();
-        console.log('Upcoming events:', data);
+        localStorage.setItem('upcomingEvents', JSON.stringify(data))
+        //console.log('Upcoming events:', data);
+        return data;
     } catch (error) {
         console.error('Error fetching upcoming events:', error);
     }

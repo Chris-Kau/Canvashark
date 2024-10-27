@@ -1,6 +1,7 @@
-
 let tasks = JSON.parse
     (localStorage.getItem('tasks')) || [];
+let upcomingEvents = JSON.parse
+    (localStorage.getItem('upcomingEvents')) || [];
 
 document.addEventListener
     ("DOMContentLoaded", function () {
@@ -163,8 +164,14 @@ function updateLocalStorage() {
     console.log("task update")
     localStorage.setItem
         ('tasks', JSON.stringify(tasks));
+    localStorage.setItem
+        ('upcomingEvents', Json.stringify(upcomingEvents))
 }
 
-
-
-
+function importedCanvasAssignments(){
+    const data = JSON.parse(localStorage.getItem('upcomingEvents'));
+    console.log(data)
+    upcomingEvents.push(data);
+    updateLocalStorage();
+    // renderTasks();
+}
