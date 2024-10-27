@@ -322,3 +322,8 @@ h3 {
     flex-wrap: wrap;              /* Allow buttons to wrap */
     margin: 10px 0;              /* Space above and below */
 }
+
+.icons {
+    width: 20px;
+    height: auto;
+}

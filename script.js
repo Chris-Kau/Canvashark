@@ -160,10 +160,15 @@ function createTaskElement(content, id, description, date, tag, colname) {
     task.innerHTML = `
         <h3>${content}</h3>
         <p class="description">${description}</p>
-        <p class="date">${date ? new Date(date).toLocaleString() : ""}</p>
+        <p class="date">
+        <img class="icons" src='./asset/Calendar.webp'></img>
+        ${date ? new Date(date).toLocaleString() : ""}
+        </p>
         <span class="${(tag ? `${tag}` : "").replace(" ", '')}">${tag ? `${tag}` : ""}</span>  
         <span class="delete-btn" onclick="deleteTask('${id}')">X</span>
-        <span class="edit-btn" onclick="editTask('${id}')">EDIT</span>
+        <span class="edit-btn" onclick="editTask('${id}')">
+            <img class="icons" src='./asset/764599.png'></img>
+        </span>
     `;
     //<Select id="changeTaskTag" onChange="updateTaskTag('${id}', this.value)">
     //     <option value="${durations[dindex]}">${durations[dindex]}</option>
