@@ -49,7 +49,7 @@ function renderTasks() {
                     task.description,
                     task.date,
                     task.tag,
-                    columnId
+                    columnId,
                 );
                 column.querySelector('.task-container').appendChild(taskElement);
             }
@@ -146,7 +146,7 @@ function clearEditModalFields() {
 
 
 
-function createTaskElement(content, id, description, date, tag) {
+function createTaskElement(content, id, description, date, tag, colname) {
     const task = document.createElement("div");
     const durations = ['Short task', 'Medium task', "Long task"]
     let dindex = durations.indexOf(tag)
@@ -169,6 +169,7 @@ function createTaskElement(content, id, description, date, tag) {
     // <p class="tag">${tag ? `${tag}` : ""}</p>
     // <span class="delete-btn" onclick="deleteTask('${id}')">X</span>
     const deleteBtn = document.create
+
     task.addEventListener("dragstart", drag);
     return task;
 }
