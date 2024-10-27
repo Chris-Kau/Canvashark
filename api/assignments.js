@@ -16,7 +16,7 @@ export default async function handler(req, res) {
 
             const ass = await get_upcoming_assignments.json();
             for (let i = 0; i < ass.length; i++) {
-                assignments.push([ass[i]['title'], ass[i]['description'].replace(/<[^>]+>/g, ''), ass[i]['due_date']]);
+                assignments.push([ass[i]['title'], ass[i]['description'].replace(/<[^>]+>/g, ''), ass[i]['assignment']['due_at']]);
             }
 
             console.log(assignments);
