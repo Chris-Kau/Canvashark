@@ -171,6 +171,25 @@ function updateLocalStorage() {
 function importedCanvasAssignments(){
     const data = JSON.parse(localStorage.getItem('upcomingEvents'));
     console.log(data)
+    for(var i =0; i < data.length; i++){
+        const title = data[i][0]
+        const description = data[i][1]
+        const date = data[i][2]
+        const tag = "Short task"
+    
+        if (title !== "") {
+            const newTask = {
+                id: "task-" + Date.now(),
+                content: title,
+                description: description,
+                date: date,
+                tag: tag,
+                status: 'due-today' // Default to 'due-today' or modify as needed
+            };
+            tasks.push(newTask);
+            updateLocalStorage();
+            renderTasks();
+    }
     upcomingEvents.push(data);
     updateLocalStorage();
     // renderTasks();
