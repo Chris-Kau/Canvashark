@@ -1,5 +1,6 @@
 async function Test() {
     const API_TOKEN = document.getElementById("inputToken").value;
+    console.log(API_TOKEN)
     try {
         const response = await fetch(`/api/assignments?token=${API_TOKEN}`);
         if (!response.ok) {
