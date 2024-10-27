@@ -18,6 +18,13 @@
 
     <div class="main">
         <p>Canvashark</p>
+        <!-- <div class="title-btn-holder">
+            <div class="main-title">Canvashark</div>
+            <div class="add-btn-holder">
+                <button class="add-task-btn" onclick="openModal()">Add Task</button>
+            </div>
+        </div> -->
+
 
         <div class="kanban">
             <div class="column" id="due-today" ondrop="drop(event, 'due-today')" ondragover="allowDrop(event)">
@@ -38,7 +45,7 @@
                         <label for="taskTag">Priority Level:</label>
                         <select id="taskTag">
                             <option value="Short task">Short task</option>
-                            <option value="Medium task">Medium tas</option>
+                            <option value="Medium task">Medium task</option>
                             <option value="Long task">Long task</option>
                         </select>
                         <!-- br is used to put the add task button on a new line -->
