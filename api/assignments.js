@@ -22,7 +22,7 @@ export default async function handler(req, res) {
             console.log(assignments);
             res.status(200).json(assignments);
         } catch (error) {
-            console.error('Error fetching user profile:', error);
+            console.error('Error fetching user profile: ', error);
         }
     }
 }
