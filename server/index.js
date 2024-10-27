@@ -2,7 +2,6 @@ const express = require('express');
 require('dotenv').config({path: '../.env'});
 API_TOKEN = process.env.ASHLEY_CANVAS_KEY
 
-const Task = require('./task_model.js')
 
 const app = express();
 app.use(express.json());
@@ -34,4 +33,6 @@ app.get('/api/v1', async(req, res)=>{
     }
 });
 
-module.exports = app;
+app.listen(3000, ()=>{
+    console.log("Connected")
+})
