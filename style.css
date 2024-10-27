@@ -283,6 +283,30 @@ h3 {
     width: 60%;
 }
 
+#importButton {
+    /* vertical-align: middle; */
+    display: block;
+    margin-top: 5px;
+    margin-left: auto;
+    margin-right: auto;
+    font-size: 16px;
+    padding: 8px 5px;
+    border-radius: 5px;
+    background-color: white;
+    border-color: #9cc7eb;
+    width: 60%;
+}
+#inputToken{
+    display: block;
+    margin-top: 20px;
+    margin-left: auto;
+    margin-right: auto;
+    font-size: 13px;
+    border-radius: 5px;
+    background-color: white;
+    border-color: #9cc7eb;
+    width: 80%;
+}
 #stickyNote{
     position: absolute;
     z-index: 9;
