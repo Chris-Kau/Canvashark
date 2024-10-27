@@ -33,6 +33,7 @@ app.get('/api/v1', async(req, res)=>{
     }
 });
 
-app.listen(3000, ()=>{
-    console.log("Connected")
-})
+module.exports = app;
+// app.listen(3000, ()=>{
+//     console.log("Connected")
+// })
