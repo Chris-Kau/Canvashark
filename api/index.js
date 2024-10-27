@@ -1,9 +1,10 @@
 const express = require('express');
-require('dotenv').config({path: '../.env'});
-API_TOKEN = process.env.ASHLEY_CANVAS_KEY
-
+const fetch = require('node-fetch');
+require('dotenv').config();
 
 const app = express();
+
+const API_TOKEN = process.env.CANVAS_KEY
 app.use(express.json());
 
 app.use((req, res, next)=>{
