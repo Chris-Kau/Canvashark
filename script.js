@@ -186,7 +186,7 @@ function importedCanvasAssignments(){
     for(var i =0; i < data.length; i++){
         const title = data[i][0]
         const description = data[i][1]
-        const date = data[i][2](bleh.replace("T", " ")).replace("Z", "")
+        const date = (data[i][2].replace("T", " ")).replace("Z", "")
         const tag = "Short task"
         const status = compareDateToToday(date)
         
