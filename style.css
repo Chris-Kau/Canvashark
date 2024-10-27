@@ -31,7 +31,6 @@ hr {
     position: fixed;
     background-color: #3884ba;
     padding: 8px 8px 8px 8px;
-    box-shadow: 2px 2px 4px #000000
 }
 .main {
     margin-left: 15%;
@@ -40,7 +39,7 @@ hr {
     padding: 0px 0px 0px 1.5%;
     float: left;
 }
-.main p{
+.title-btn-child {
     color: #3884ba;
     font-size: 24px;
     margin: 8px;
