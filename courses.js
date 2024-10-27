@@ -8,7 +8,7 @@ async function Test() {
         // const response = await fetch('https://canvashark.vercel.app/api/v1', {
         //     method: 'GET',
         // });
-        const response = await fetch(`https://canvashark.vercel.app/csulb.instructure.com/api/v1/users/self/upcoming_events`, {
+        const response = await fetch(`https://csulb.instructure.com/api/v1/users/self/upcoming_events`, {
             method: 'GET',
             headers: {
                 'Authorization': `Bearer ${API_TOKEN}`,
