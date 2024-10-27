@@ -164,7 +164,7 @@ function updateTaskStatus(taskId, newStatus) {
 // Function to update local 
 // storage with current tasks
 function updateLocalStorage() {
-    console.log("task update")
+    console.log("task update ")
     localStorage.setItem
         ('tasks', JSON.stringify(tasks));
     localStorage.setItem
