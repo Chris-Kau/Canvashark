@@ -116,7 +116,7 @@ hr {
 
 .edit-btn {
     float: right;
-    margin-right: 15px;
+    margin-right: 10px;
     cursor: pointer;
 }
 
@@ -179,6 +179,16 @@ h3 {
     color: #7e7e7e;
 }
 
+.date {
+    display: flex;
+    align-items: center;
+    /* vertical-align: middle; */
+}
+.date img {
+    padding-right: 1px;
+}
+
+
 .Shorttask {
     /* #EBEEF1 */
     background-color: #F6F0BB;
@@ -198,6 +208,11 @@ h3 {
     border-radius: 5px;
     font-size: 14px;
 }
+
+
+
+
+
 
 
 /* Modal stuffs below */
@@ -324,6 +339,6 @@ h3 {
 }
 
 .icons {
-    width: 20px;
+    width: 18px;
     height: auto;
 }

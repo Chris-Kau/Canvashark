@@ -161,8 +161,8 @@ function createTaskElement(content, id, description, date, tag, colname) {
         <h3>${content}</h3>
         <p class="description">${description}</p>
         <p class="date">
-        <img class="icons" src='./asset/Calendar.webp'></img>
-        ${date ? new Date(date).toLocaleString() : ""}
+            <img class="icons" src='./asset/Calendar.webp'></img>
+            ${date ? new Date(date).toLocaleString() : ""}
         </p>
         <span class="${(tag ? `${tag}` : "").replace(" ", '')}">${tag ? `${tag}` : ""}</span>  
         <span class="delete-btn" onclick="deleteTask('${id}')">X</span>
