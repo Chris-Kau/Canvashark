@@ -162,7 +162,7 @@ function createTaskElement(content, id, description, date, tag, colname) {
         <p class="description">${description}</p>
         <p class="date">
             <img class="icons" src='./asset/Calendar.webp'></img>
-            ${date ? new Date(date).toLocaleString() : ""}
+            ${date ? new Date(date).toLocaleString('en-US') : ""}
         </p>
         <span class="${(tag ? `${tag}` : "").replace(" ", '')}">${tag ? `${tag}` : ""}</span>  
         <span class="delete-btn" onclick="deleteTask('${id}')">X</span>
@@ -297,7 +297,8 @@ function importedCanvasAssignments(){
     for(var i =0; i < data.length; i++){
         const title = data[i][0]
         const description = data[i][1]
-        const date = data[i][2].toLocaleString('en-US')
+        var date = data[i][2].toLocaleString('en-US')
+        date = date.substring(0,date.length-4)
         const tag = "Short task"
         const status = "Todo"
         if (title !== "") {
