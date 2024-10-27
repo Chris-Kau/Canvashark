@@ -6,12 +6,7 @@
     <link rel="stylesheet" href="style.css">
     <link href='https://fonts.googleapis.com/css?family=Roboto' rel='stylesheet'>
     <title>Canvashark</title>
-    <script src = "script.js"></script>
-    <script src = "courses.js"></script>
-    <script>
-        document.addEventListener('DOMContentLoaded', Test);
-        document.addEventListener('DOMContentLoaded', importedCanvasAssignments);
-    </script>
+
 </head>
 
 <body>
@@ -20,6 +15,8 @@
         <!-- <input type="password" id = "inputToken">
         <button id = "importButton" onClick = "importedCanvasAssignments()">IMPORT CANVAS</button> -->
         <button id = "addStickyNote" onClick = openStickyNoteModal()>&plus; Sticky Note</button>
+        <input type="password" id = "inputToken">
+        <button id = "importButton" onClick = "importedCanvasAssignments()">IMPORT CANVAS</button>
         <!--Add Sticky Note Modal-->
         <div id="stickyNoteModal" class="modal">
             <div class="stickyNote-modal-content">
@@ -121,7 +118,8 @@
     </div>
       </div>
     <div id="stickyNotesContainer"></div>
-
     <script src = "stickynotes.js"></script>
+    <script src = "courses.js"></script>
+    <script src = "script.js"></script>
 </body>
 </html>

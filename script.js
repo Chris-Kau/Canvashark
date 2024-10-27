@@ -312,6 +312,6 @@ function importedCanvasAssignments(){
             tasks.push(newTask);
             updateLocalStorage();
             renderTasks();
+        }
     }
-}
 }
