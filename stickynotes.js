@@ -11,7 +11,7 @@ function createStickyNote(color){
   
       const stickyNoteHeader = document.createElement('div');
       stickyNoteHeader.id = 'stickyNoteHeader';
-      stickyNoteHeader.innerHTML = `=&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Sticky Note`;
+      stickyNoteHeader.innerHTML = `=&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Sticky Note`;
       const closeButton = document.createElement('span');
       closeButton.id = 'closeButton';
       closeButton.innerHTML = '&times;';
