@@ -97,6 +97,8 @@ function createTaskElement(content, id, description, date, tag) {
 function deleteTask(taskId) {
     tasks = tasks.
         filter(task => task.id !== taskId);
+    upcomingEvents = upcomingEvents.
+    filter(uE => uE.id !== taskId);
     updateLocalStorage();
     renderTasks();
 }
