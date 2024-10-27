@@ -55,6 +55,14 @@ hr {
 }
 
 
+.sidenav img {
+    /* width: 200px; */
+    width: 90%;
+    height: auto;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+}
 
 .main-title {
     float: left;
