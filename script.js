@@ -177,7 +177,6 @@ function createTaskElement(content, id, description, date, tag, colname) {
     // </Select>
     // <p class="tag">${tag ? `${tag}` : ""}</p>
     // <span class="delete-btn" onclick="deleteTask('${id}')">X</span>
-    const deleteBtn = document.create
 
     task.addEventListener("dragstart", drag);
     return task;
