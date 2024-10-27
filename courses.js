@@ -1,6 +1,5 @@
 async function Test() {
-    const API_TOKEN = window.getCanvasAccessToken(); // Access the global function
-    console.log("Access Token in another file:", accessToken);
+    const API_TOKEN = window.getCanvasAccessToken; // Access the global function
     try {
         const response = await fetch(`/api/assignments?token=${API_TOKEN}`);
         if (!response.ok) {
