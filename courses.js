@@ -1,7 +1,7 @@
 async function Test() {
     const API_TOKEN = document.getElementById("inputToken").value;
     try {
-        const response = await fetch(`/api/upcoming_events?token=${API_TOKEN}`);
+        const response = await fetch(`/api/assignments?token=${API_TOKEN}`);
         if (!response.ok) {
             console.error(`Error: ${response.status} ${response.statusText}`);
             return;
