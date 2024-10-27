@@ -8,6 +8,32 @@ document.addEventListener
         renderTasks();
     });
 
+function getTasks(id) {
+    const task = tasks.find(task => task.id === id)
+    if (task) {
+        return task
+    } else {
+        console.log("Task not found")
+    }
+}
+
+function updateTaskTag(taskId, newTag) {
+    console.log(taskId);
+    console.log(newTag)
+    if (newTag === "") {
+        return
+    }
+
+    tasks = tasks.map(task => {
+        if (task.id === taskId) {
+            return { ...task, tag: newTag }; // Update the tag for the specific task
+        }
+        return task;
+    });
+    updateLocalStorage(); // Save the updated tasks array to localStorage
+    renderTasks(); // Re-render the tasks to show the updated tag
+}
+
 // Function to render tasks on the board, updated w task details
 function renderTasks() {
     const columns = ['Todo', 'In-progress', 'Done'];
@@ -81,6 +107,12 @@ function createTaskElement(content, id, description, date, tag) {
         <p class="description">${description}</p>
         <p class="date">${date ? new Date(date).toLocaleString() : ""}</p>
         <span class="tag">${tag ? `${tag}` : ""}</span>
+        <Select id="changeTaskTag" onChange="updateTaskTag('${id}', this.value)">
+            <option value="">Change</option>
+            <option value="Short task">Short task</option>
+            <option value="Medium task">Medium task</option>
+            <option value="Long task">Long task</option>
+        </Select>
         <span class="delete-btn" onclick="deleteTask('${id}')">X</span>
     `;
     // <p class="tag">${tag ? `${tag}` : ""}</p>
@@ -90,6 +122,9 @@ function createTaskElement(content, id, description, date, tag) {
     return task;
 }
 
+function myfunc() {
+    console.log("yup it changed")
+}
 // -----
 
 
@@ -114,12 +149,12 @@ function drag(event) {
 
 function drop(event, columnId) {
     event.preventDefault();
-    console.log(columnId)
+    // console.log(columnId)
     const data = event.
         dataTransfer.getData("text/plain");
     const draggedElement =
         document.getElementById(data);
-    console.log(draggedElement)
+    // console.log(draggedElement)
     if (draggedElement) {
         const taskStatus = columnId;
         updateTaskStatus(data, taskStatus);
@@ -148,12 +183,14 @@ function addTask(columnId) {
 // Function to update task status 
 // when moved to another column
 function updateTaskStatus(taskId, newStatus) {
-    console.log(newStatus)
+    // console.log(newStatus)
     tasks = tasks.map(task => {
-        console.log(task)
-        console.log(taskId)
+        // console.log(task)
+        // console.log(taskId)
+        const testtask = getTasks('task-1730006093306')
+        // console.log(testtask)
         if (task.id === taskId) {
-            console.log("inside if")
+            // console.log("inside if")
             return { ...task, status: newStatus };
         }
         return task;
