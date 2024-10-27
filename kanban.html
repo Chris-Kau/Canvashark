@@ -27,8 +27,8 @@
 
 
         <div class="kanban">
-            <div class="column" id="due-today" ondrop="drop(event, 'due-today')" ondragover="allowDrop(event)">
-                <h2>Due Today</h2>
+            <div class="column" id="todo" ondrop="drop(event, 'due-today')" ondragover="allowDrop(event)">
+                <h2>Todo</h2>
                 <hr>
                 <div class="task-container"></div>
 
@@ -67,15 +67,15 @@
 
             </div>
 
-            <div class="column" id="due-soon" ondrop="drop(event, 'due-soon')" ondragover="allowDrop(event)">
-                <h2>Due Soon</h2>
+            <div class="column" id="In-progress" ondrop="drop(event, 'due-soon')" ondragover="allowDrop(event)">
+                <h2>In-progress</h2>
                 <hr>
                 <div class="task-container"></div>
                 <!-- <button class="add-task-btn" onclick="openModal()">Add Task</button> -->
             </div>
 
-            <div class="column" id="upcoming" ondrop="drop(event, 'upcoming')" ondragover="allowDrop(event)">
-                <h2>Upcoming</h2>
+            <div class="column" id="Done" ondrop="drop(event, 'upcoming')" ondragover="allowDrop(event)">
+                <h2>Done</h2>
                 <hr>
                 <div class="task-container"></div>
             </div>

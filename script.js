@@ -10,7 +10,7 @@ document.addEventListener
 
 // Function to render tasks on the board, updated w task details
 function renderTasks() {
-    const columns = ['due-today', 'due-soon', 'upcoming'];
+    const columns = ['Todo', 'In-progress', 'Done'];
 
     columns.forEach(columnId => {
         const column = document.getElementById(columnId);
