@@ -11,19 +11,19 @@
 <body>
     <div class="sidenav">
         <a href="index.html">CANVASHARK</a>
-        <input type="password" id = "inputToken">
-        <button id = "importButton" onClick = importedCanvasAssignments()>IMPORT CANVAS</button>
+        <input type="text" id = "inputToken">
+        <button id = "importButton">IMPORT CANVAS</button>
         <!-- chatbox also goes here -->
     </div>
 
     <div class="main">
-        <p>Canvashark</p>
-        <!-- <div class="title-btn-holder">
-            <div class="main-title">Canvashark</div>
-            <div class="add-btn-holder">
+        <!-- <p>Canvashark</p> -->
+        <div class="title-btn-holder">
+            <div class="title-btn-child">Canvashark</div>
+            <div class="title-btn-child">
                 <button class="add-task-btn" onclick="openModal()">Add Task</button>
             </div>
-        </div> -->
+        </div>
 
 
         <div class="kanban">
@@ -42,7 +42,7 @@
                         <textarea id="taskDescription" placeholder="Enter task description..." class="modal-input"></textarea>
                         <input type="datetime-local" id="taskDate" class="modal-input">
                         <!-- <input type="text" id="taskTag" placeholder="Enter a tag..." class="modal-input"> -->
-                        <label for="taskTag">Priority Level:</label>
+                        <label for="taskTag">Estimated length of Completion:</label>
                         <select id="taskTag">
                             <option value="Short task">Short task</option>
                             <option value="Medium task">Medium task</option>
@@ -53,7 +53,7 @@
                         <button onclick="addTaskWithDetails()">Add Task</button>
                     </div>
                 </div>
-                <button class="add-task-btn" onclick="openModal()">Add Task</button>
+                <!-- <button class="add-task-btn" onclick="openModal()">Add Task</button> -->
 
                 <!--make it a popup instead with title, date, desc, urgency tags enum-->
                 <!-- <div class="tasks-in-btn">
@@ -71,6 +71,7 @@
                 <h2>Due Soon</h2>
                 <hr>
                 <div class="task-container"></div>
+                <!-- <button class="add-task-btn" onclick="openModal()">Add Task</button> -->
             </div>
 
             <div class="column" id="upcoming" ondrop="drop(event, 'upcoming')" ondragover="allowDrop(event)">
