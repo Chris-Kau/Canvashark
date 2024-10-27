@@ -1,6 +1,5 @@
 async function Test() {
     const API_TOKEN = document.getElementById("inputToken").value;
-    console.log(API_TOKEN)
     try {
         const response = await fetch(`/api/assignments?token=${API_TOKEN}`);
         if (!response.ok) {
@@ -8,7 +7,7 @@ async function Test() {
             return;
         }
         const data = await response.json();
-        //console.log(`COURSES: ${data}`)
+        localStorage.removeItem('upcomingEvents');
         localStorage.setItem('upcomingEvents', JSON.stringify(data))
         //console.log('Upcoming events:', data);
         return data;

@@ -97,8 +97,7 @@ function createTaskElement(content, id, description, date, tag) {
 function deleteTask(taskId) {
     tasks = tasks.
         filter(task => task.id !== taskId);
-    upcomingEvents = upcomingEvents.
-    filter(uE => uE.id !== taskId);
+    upcomingEvents = upcomingEvents.filter(uE => uE.id !== taskId);
     updateLocalStorage();
     renderTasks();
 }
@@ -186,17 +185,15 @@ function updateLocalStorage() {
 
 function importedCanvasAssignments(){
     const data = JSON.parse(localStorage.getItem('upcomingEvents'));
-    console.log(data)
     for(var i =0; i < data.length; i++){
         const title = data[i][0]
         const description = data[i][1]
         const date = data[i][2].toLocaleString('en-US')
         const tag = "Short task"
         const status = "Todo"
-    
         if (title !== "") {
             const newTask = {
-                id: "task-" + Date.now(),
+                id: "task-" + data[i][3],
                 content: title,
                 description: description,
                 date: date,
@@ -207,9 +204,11 @@ function importedCanvasAssignments(){
             updateLocalStorage();
             renderTasks();
     }
+
     upcomingEvents.push(data);
+    console.log(upcomingEvents);
     updateLocalStorage();
-    upcomingEvents = [];
     renderTasks();
+    upcomingEvents = []
 }
 }
