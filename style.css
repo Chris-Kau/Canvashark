@@ -20,7 +20,8 @@ hr {
     left: 0;
     position: fixed;
     background-color: #3884ba;
-    padding: 8px 8px 8px 8px
+    padding: 8px 8px 8px 8px;
+    box-shadow: 2px 2px 4px #000000
 }
 .main {
     margin-left: 15%;
@@ -98,7 +99,7 @@ hr {
     color: #a9aaab;
 }
 
-.task {
+.taskTodo {
     background-color: white;
     padding: 10px;
     border-radius: 2px;
@@ -107,18 +108,52 @@ hr {
     border-left: 10px solid #9cc7eb;
     cursor: move;
 }
+.taskIn-progress {
+    background-color: white;
+    padding: 10px;
+    border-radius: 2px;
+    margin-bottom: 10px;
+    border: 2px solid #cde6fa;
+    border-left: 10px solid #cde6fa;
+    cursor: move;
+}
+.taskDone {
+    background-color: white;
+    padding: 10px;
+    border-radius: 2px;
+    margin-bottom: 10px;
+    border: 2px solid #d4fdf8;
+    border-left: 10px solid #d4fdf8;
+    cursor: move;
+}
 
 h3 {
     font-size: 16px;
     font-weight: 100;
     margin: 2px;
 }
-.task p {
+.taskTodo p {
     color: black;
     font-size: 14px;
     margin: 2px;
 }
-.task .description {
+.taskIn-progress p {
+    color: black;
+    font-size: 14px;
+    margin: 2px;
+}
+.taskDone p {
+    color: black;
+    font-size: 14px;
+    margin: 2px;
+}
+.taskTodo .description {
+    color: #7e7e7e;
+}
+.taskIn-progress .description {
+    color: #7e7e7e;
+}
+.taskDone .description {
     color: #7e7e7e;
 }
 
@@ -156,4 +191,57 @@ h3 {
     float: right;
     font-size: 20px;
     cursor: pointer;
+}
+
+/* Sticky notes */
+#stickyNote{
+    position: absolute;
+    z-index: 9;
+    background-color: #fffeaf;
+    border: 1px solid #d3d3d3;
+    display: flex;
+    flex-direction: column;
+    width: 200px;
+    height: 200px;
+
+}
+
+#stickyNoteHeader {
+    padding-left: 5px;
+    width: 97%; /* Header takes full width */
+    height: 30px; /* Adjusted height for header area */
+    cursor: move;
+    z-index: 10;
+    color: #3b3a3a;
+    font-size: 20px;
+    text-align: left;
+    background-color: #fffd85;
+    box-shadow: 1px 2px 4px #b0b0b064
+}
+#stickyNoteInput {
+    flex-grow: 1; /* Fills remaining space */
+    display: flex;
+    justify-content: center; /* Center the input horizontally */
+    padding-top:10px;
+}
+
+#stickyNoteInput textarea {
+    width: 90%;
+    height: 90%;
+    box-sizing: border-box;
+    padding: 5px; /* Adds padding to align text to the top */
+    text-align: left; /* Aligns text to the left */
+    vertical-align: top; /* Makes sure text aligns at the top */
+    resize: none;
+}
+#closeButton {
+    color: #ff5c5c;
+    font-weight: bold;
+    cursor: pointer;
+    margin-right: 5px;
+    font-size: 18px;
+    float:right;
+}
+#closeButton:hover{
+    transform: scale(1.3);
 }

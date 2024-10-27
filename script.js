@@ -37,7 +37,6 @@ function updateTaskTag(taskId, newTag) {
 // Function to render tasks on the board, updated w task details
 function renderTasks() {
     const columns = ['Todo', 'In-progress', 'Done'];
-
     columns.forEach(columnId => {
         const column = document.getElementById(columnId);
         column.querySelector('.task-container').innerHTML = '';
@@ -49,7 +48,8 @@ function renderTasks() {
                     task.id,
                     task.description,
                     task.date,
-                    task.tag
+                    task.tag,
+                    columnId
                 );
                 column.querySelector('.task-container').appendChild(taskElement);
             }
@@ -97,12 +97,12 @@ function clearModalFields() {
     document.getElementById("taskTag").value = "";
 }
 
-function createTaskElement(content, id, description, date, tag) {
+function createTaskElement(content, id, description, date, tag, colname) {
     const task = document.createElement("div");
     const durations = ['Short task', 'Medium task', "Long task"]
     let dindex = durations.indexOf(tag)
     task.id = id;
-    task.className = "task";
+    task.className = `task${colname}`;
     task.draggable = true;
     task.innerHTML = `
         <h3>${content}</h3>
@@ -159,6 +159,7 @@ function drop(event, columnId) {
         updateTaskStatus(data, taskStatus);
         event.target.querySelector('.task-container').
             appendChild(draggedElement);
+        draggedElement.className = `task${taskStatus}`
     }
 }
 
