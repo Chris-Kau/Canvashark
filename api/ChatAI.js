@@ -1,18 +1,27 @@
-import 'dotenv/config.js'
-// const express = require('express');
-import express from "express";
-console.log(process.env.OpenAI_KEY)
-// const { Configuration, OpenAIApi } = require("openai");
-import OpenAI from "openai";
+import { Configuration, OpenAIApi } from 'openai';
 
-const app = express();
+const configuration = new Configuration({
+    apiKey: process.env.OPENAI_KEY, // Make sure to set this in your environment variables
+});
+const openai = new OpenAIApi(configuration);
 
-app.use(express.json());
+export default async function handler(req, res) {
+    if (req.method === 'POST') {
+        const { prompt } = req.body; // Expecting a prompt in the request body
 
-app.listen(3000, () => {
-    console.log("Server listening")
-})
+        try {
+            const response = await openai.createChatCompletion({
+                model: 'gpt-3.5-turbo',
+                messages: [
+                    {role: 'system', content: "Only reply with 'Short Task', 'Medium Task', or 'Long Task'"},
+                    { role: 'user', content: prompt }
+                ],
+            });
 
-const openai = new OpenAI({
-    apiKey: process.env.OpenAI_KEY
-})
+            res.status(200).json({ reply: response.data.choices[0].message.content });
+        } catch (error) {
+            console.error('Error fetching response from OpenAI:', error);
+            res.status(500).json({ error: 'Failed to fetch response from OpenAI' });
+        }
+    }
+}
