@@ -1,6 +1,7 @@
-const express = require('express');
-const fetch = require('node-fetch');
-require('dotenv').config();
+import express from 'express';
+import fetch from 'node-fetch';
+import dotenv from 'dotenv';
+dotenv.config()
 
 const app = express();
 
@@ -34,4 +35,4 @@ app.get('/api/v1', async(req, res)=>{
     }
 });
 
-module.exports = app;
+export default app;
