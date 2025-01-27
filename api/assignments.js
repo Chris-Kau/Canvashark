@@ -15,10 +15,16 @@ export default async function handler(req, res) {
             });
 
             const ass = await get_upcoming_assignments.json();
+            console.log(ass)
             for (let i = 0; i < ass.length; i++) {
-                assignments.push([ass[i]['title'], ass[i]['description'].replace(/<[^>]+>/g, ''), ass[i]['assignment']['due_at'], ass[i]['id']]);
+                if(ass[i]['assignment']){
+                    if(ass[i]['description']){
+                        assignments.push([ass[i]['title'], ass[i]['description'].replace(/<[^>]+>/g, ''), ass[i]['assignment']['due_at'], ass[i]['id']]);
+                    }else{
+                        assignments.push([ass[i]['title'], 'No available description', ass[i]['assignment']['due_at'], ass[i]['id']]);
+                    }
+                }
             }
-
             res.status(200).json(assignments);
         } catch (error) {
             console.error('Error fetching user profile: ', error);
