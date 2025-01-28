@@ -7,7 +7,6 @@ document.addEventListener
     ("DOMContentLoaded", function () {
         renderTasks();
     });
-
 function getTasks(id) {
     const task = tasks.find(task => task.id === id)
     if (task) {
@@ -88,7 +87,7 @@ function addTaskWithDetails() {
 
     if (title !== "") {
         const newTask = {
-            id: "task-" + Date.now(),
+            id: "task-".concat(Date.now().toString()),
             content: title,
             description: description,
             date: date,
@@ -170,14 +169,6 @@ function createTaskElement(content, id, description, date, tag, colname) {
             <img class="icons" src='./asset/764599.png'></img>
         </span>
     `;
-    //<Select id="changeTaskTag" onChange="updateTaskTag('${id}', this.value)">
-    //     <option value="${durations[dindex]}">${durations[dindex]}</option>
-    //     <option value="${durations[(dindex + 1) % 3]}">${durations[(dindex + 1) % 3]}</option>
-    //     <option value="${durations[(dindex + 2) % 3]}">${durations[(dindex + 2) % 3]}</option>
-    // </Select>
-    // <p class="tag">${tag ? `${tag}` : ""}</p>
-    // <span class="delete-btn" onclick="deleteTask('${id}')">X</span>
-
     task.addEventListener("dragstart", drag);
     return task;
 }
@@ -188,20 +179,17 @@ function editTask(id) {
     console.log(task)
     
     openEditModal()
-    // const title = document.getElementById("editTitle").value.trim();
     document.getElementById("editTitle").value = task.content;
     document.getElementById("editDescription").value = task.description;
     document.getElementById("editDate").value = task.date;
     document.getElementById("editTag").value = task.tag;
     document.getElementById("editTag").className = task.id;
 }
-// -----
 
 
 // Function to delete a task
 function deleteTask(taskId) {
-    tasks = tasks.
-        filter(task => task.id !== taskId);
+    tasks = tasks.filter(task => task.id !== taskId);
     upcomingEvents = upcomingEvents.filter(uE => uE.id !== taskId);
     updateLocalStorage();
     renderTasks();
@@ -218,12 +206,10 @@ function drag(event) {
 
 function drop(event, columnId) {
     event.preventDefault();
-    // console.log(columnId)
     const data = event.
         dataTransfer.getData("text/plain");
     const draggedElement =
         document.getElementById(data);
-    // console.log(draggedElement)
     if (draggedElement) {
         const taskStatus = columnId;
         updateTaskStatus(data, taskStatus);
@@ -239,7 +225,7 @@ function addTask(columnId) {
     const taskContent = taskInput.value.trim();
     if (taskContent !== "") {
         const newTask = {
-            id: "task-" + Date.now(),
+            id: "task-".concat(Date.now().toString()),
             content: taskContent,
             status: columnId
         };
@@ -253,14 +239,8 @@ function addTask(columnId) {
 // Function to update task status 
 // when moved to another column
 function updateTaskStatus(taskId, newStatus) {
-    // console.log(newStatus)
     tasks = tasks.map(task => {
-        // console.log(task)
-        // console.log(taskId)
-        const testtask = getTasks('task-1730006093306')
-        // console.log(testtask)
         if (task.id === taskId) {
-            // console.log("inside if")
             return { ...task, status: newStatus };
         }
         return task;
@@ -297,13 +277,13 @@ function importedCanvasAssignments(){
     for(var i =0; i < data.length; i++){
         const title = data[i][0]
         const description = data[i][1]
-        var date = data[i][2].toLocaleString('en-US')
-        date = date.substring(0,date.length-4)
+        var date = new Date(data[i][2])
+        //date = date.substring(0,date.length-4)
         const tag = "Short task"
         const status = "Todo"
         if (title !== "") {
             const newTask = {
-                id: "task-" + data[i][3],
+                id: "task-".concat(Date.now().toString()),
                 content: title,
                 description: description,
                 date: date,
