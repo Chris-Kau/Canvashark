@@ -151,7 +151,6 @@ function clearEditModalFields() {
 function createTaskElement(content, id, description, date, tag, colname) {
     const task = document.createElement("div");
     const durations = ['Short task', 'Medium task', "Long task"]
-    let dindex = durations.indexOf(tag)
 
     task.id = id;
     task.className = `task${colname}`;
@@ -174,14 +173,14 @@ function createTaskElement(content, id, description, date, tag, colname) {
 }
 
 function editTask(id) {
-    console.log(id)
-    const task = getTasks(id)
-    console.log(task)
-    
+    const task = getTasks(id);
+    console.log(task.date);
+    var date = task.date.toLocaleString().split(":")
+    console.log(date)
     openEditModal()
     document.getElementById("editTitle").value = task.content;
     document.getElementById("editDescription").value = task.description;
-    document.getElementById("editDate").value = task.date;
+    document.getElementById("editDate").value = date[0] +":"+ date[1];
     document.getElementById("editTag").value = task.tag;
     document.getElementById("editTag").className = task.id;
 }
