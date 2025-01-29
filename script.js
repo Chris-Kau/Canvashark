@@ -174,13 +174,10 @@ function createTaskElement(content, id, description, date, tag, colname) {
 
 function editTask(id) {
     const task = getTasks(id);
-    console.log(task.date);
-    var date = task.date.toLocaleString().split(":")
-    console.log(date)
     openEditModal()
     document.getElementById("editTitle").value = task.content;
     document.getElementById("editDescription").value = task.description;
-    document.getElementById("editDate").value = date[0] +":"+ date[1];
+    document.getElementById("editDate").value = task.date;
     document.getElementById("editTag").value = task.tag;
     document.getElementById("editTag").className = task.id;
 }
@@ -257,19 +254,6 @@ function updateLocalStorage() {
         ('upcomingEvents', JSON.stringify(upcomingEvents))
 }
 
-// function compareDateToToday(date){
-//     let date1 = new Date(Date.now())
-//     let date2 = new Date(date)
-//     let Difference_In_Days = Math.round((date2.getTime() - date1.getTime()) / (1000 * 3600 * 24));
-//     if (Difference_In_Days <= 3 && Difference_In_Days >= 1){
-//         return "due-soon"
-//     }else if(Difference_In_Days < 1){
-//         return "due-today"
-//     }else{
-//         return "upcoming"
-//     }
-// }
-
 function importedCanvasAssignments(){
     const data = JSON.parse(localStorage.getItem('upcomingEvents'));
     console.log(data);
@@ -277,7 +261,17 @@ function importedCanvasAssignments(){
         const title = data[i][0]
         const description = data[i][1]
         var date = new Date(data[i][2])
-        //date = date.substring(0,date.length-4)
+        const options = {
+            timeZone: "America/Los_Angeles",
+            year: "numeric",
+            month: "2-digit",
+            day: "2-digit",
+            hour: "2-digit",
+            minute: "2-digit",
+            hour12: false
+          };
+        var ISOString = new Intl.DateTimeFormat("en-US", options).format(date).split(', ')
+        date = ISOString[0].split("/")[2] + "-" + ISOString[0].split("/")[0] + "-" + ISOString[0].split("/")[1] + "T" + ISOString[1]
         const tag = "Short task"
         const status = "Todo"
         if (title !== "") {
@@ -287,7 +281,7 @@ function importedCanvasAssignments(){
                 description: description,
                 date: date,
                 tag: tag,
-                status: status // Default to 'due-today' or modify as needed
+                status: status
             };
             tasks.push(newTask);
             updateLocalStorage();
