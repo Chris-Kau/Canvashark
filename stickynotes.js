@@ -6,62 +6,49 @@ function closeStickyNoteModal() {
 }
 
 function createStickyNote(color){
-      const stickyNote = document.createElement('div');
-      stickyNote.id = 'stickyNote';
-  
-      const stickyNoteHeader = document.createElement('div');
-      stickyNoteHeader.id = 'stickyNoteHeader';
-      stickyNoteHeader.innerHTML = `=&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Sticky Note`;
-      const closeButton = document.createElement('span');
-      closeButton.id = 'closeButton';
-      closeButton.innerHTML = '&times;';
-      closeButton.onclick = function() {
-          stickyNote.remove();
-      };
-  
-      stickyNoteHeader.appendChild(closeButton);
-      stickyNote.appendChild(stickyNoteHeader);
-      
-      const stickyNoteInput = document.createElement('div');
-      stickyNoteInput.id = 'stickyNoteInput';
-      const stickyTextArea = document.createElement('textarea');
-      stickyTextArea.id = 'stickyTextArea';
-      stickyNoteInput.appendChild(stickyTextArea);
-      stickyNote.appendChild(stickyNoteInput);
-  
-      stickyNoteHeader.style.backgroundColor = color;
-      stickyNote.style.backgroundColor = color;
+    const stickyNote = document.createElement('div');
+    stickyNote.id = 'stickyNote';
 
-      document.getElementById('stickyNotesContainer').appendChild(stickyNote);
-      dragElement(stickyNote, stickyNoteHeader)
-}
-function dragElement(elmnt, header) {
-    let pos1 = 0, pos2 = 0, pos3 = 0, pos4 = 0;
+    const stickyNoteHeader = document.createElement('div');
+    stickyNoteHeader.id = 'stickyNoteHeader';
+    stickyNoteHeader.innerHTML = `=&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Sticky Note`;
+    const closeButton = document.createElement('span');
+    closeButton.id = 'closeButton';
+    closeButton.innerHTML = '&times;';
+    closeButton.onclick = function() {
+        stickyNote.remove();
+    };
 
-    header.onmousedown = dragMouseDown;
+    stickyNoteHeader.appendChild(closeButton);
+    stickyNote.appendChild(stickyNoteHeader);
+    
+    const stickyNoteInput = document.createElement('div');
+    stickyNoteInput.id = 'stickyNoteInput';
+    const stickyTextArea = document.createElement('textarea');
+    stickyTextArea.id = 'stickyTextArea';
+    stickyNoteInput.appendChild(stickyTextArea);
+    stickyNote.appendChild(stickyNoteInput);
 
-    function dragMouseDown(e) {
-        e = e || window.event;
-        e.preventDefault();
-        pos3 = e.clientX;
-        pos4 = e.clientY;
-        document.onmouseup = closeDragElement;
-        document.onmousemove = elementDrag;
+    stickyNoteHeader.style.backgroundColor = color;
+    stickyNote.style.backgroundColor = color;
+    
+    document.getElementById('stickyNotesContainer').appendChild(stickyNote);
+    //Logic for dragging Sticky note around
+    let offsetX, offsetY;
+    const move = (e) =>{
+        //updating the position of the sticky note based off the mouse position
+        stickyNote.style.left = `${e.clientX - offsetX}px`;
+        stickyNote.style.top = `${e.clientY - offsetY}px`;
     }
+    stickyNoteHeader.addEventListener("mousedown", (e) =>{
+        //calculate offset values
+        offsetX = e.clientX - stickyNote.offsetLeft;
+        offsetY = e.clientY - stickyNote.offsetTop;
+        document.addEventListener("mousemove", move)
+    });
 
-    function elementDrag(e) {
-        e = e || window.event;
-        e.preventDefault();
-        pos1 = pos3 - e.clientX;
-        pos2 = pos4 - e.clientY;
-        pos3 = e.clientX;
-        pos4 = e.clientY;
-        elmnt.style.top = (elmnt.offsetTop - pos2) + "px";
-        elmnt.style.left = (elmnt.offsetLeft - pos1) + "px";
-    }
-
-    function closeDragElement() {
-        document.onmouseup = null;
-        document.onmousemove = null;
-    }
+    document.addEventListener("mouseup", ()=>{
+        //stop dragging the sticky note when we let go of left click
+        document.removeEventListener("mousemove", move);
+    });
 }
