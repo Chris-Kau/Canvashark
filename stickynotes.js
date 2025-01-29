@@ -39,6 +39,7 @@ function createStickyNote(color){
         //updating the position of the sticky note based off the mouse position
         stickyNote.style.left = `${e.clientX - offsetX}px`;
         stickyNote.style.top = `${e.clientY - offsetY}px`;
+
     }
     stickyNoteHeader.addEventListener("mousedown", (e) =>{
         //calculate offset values
@@ -50,5 +51,8 @@ function createStickyNote(color){
     document.addEventListener("mouseup", ()=>{
         //stop dragging the sticky note when we let go of left click
         document.removeEventListener("mousemove", move);
+        //store position and text contents here!!!
+        console.log(stickyNote.style.left)
+        console.log(stickyNote.style.top)
     });
 }
