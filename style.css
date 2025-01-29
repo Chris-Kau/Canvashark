@@ -311,7 +311,7 @@ h3 {
     background-color: white;
     width: 80%;
 }
-#stickyNote{
+.stickyNote{
     position: absolute;
     z-index: 9;
     background-color: #fffeaf;
