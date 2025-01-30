@@ -1,11 +1,10 @@
 import fetch from 'node-fetch';
-
 export default async function handler(req, res) {
     if (req.method === 'GET') {
         try {
             const API_TOKEN = req.query.token;
             const assignments = [];
-
+            //request to the csulb instructure api using the user's token as Authorization to gain access to their information.
             const get_upcoming_assignments = await fetch(`https://csulb.instructure.com/api/v1/users/self/upcoming_events`, {
                 method: 'GET',
                 headers: {
@@ -13,8 +12,9 @@ export default async function handler(req, res) {
                     'Content-Type': 'application/json'
                 },
             });
-
             const upcomingAssignments = await get_upcoming_assignments.json();
+            //go through every upcoming assignment and add its information to the assignments list
+            //each assignment is stored as a list with 3 elements: title, description, and due date
             for (let i = 0; i < upcomingAssignments.length; i++) {
                 if(upcomingAssignments[i]['assignment']){
                     let currentAssignment = upcomingAssignments[i];
