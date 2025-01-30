@@ -5,7 +5,11 @@ function closeStickyNoteModal() {
     document.getElementById("stickyNoteModal").style.display = "none";
 }
 
+var existingStickyNotes = {}
+
 function storeStickyNote(stickyNote){
+    //Stores the sticky note in an associative list where its key is its ID and its value
+    //is a list of its attributes: Color, xPos, yPos, Description, and its unique ID
     existingStickyNotes[stickyNote.id] = [stickyNote.style.backgroundColor, stickyNote.style.left, stickyNote.style.top, stickyTextArea.value, stickyNote.id];
     localStorage.setItem("stickyNotes", JSON.stringify(existingStickyNotes));
 }
@@ -15,7 +19,8 @@ function deleteStickyNote(stickyNote){
     localStorage.setItem("stickyNotes", JSON.stringify(existingStickyNotes));
 }
 
-var existingStickyNotes = {}
+//When the document loads, retrieve the sticky notes from the local storage if there are any, if not, initialize an empty list
+//If there are sticky notes, we will used the stored sticky notes' information to recreate the sticky notes.
 document.addEventListener("DOMContentLoaded", function (){
     if(!localStorage.getItem("stickyNotes")){
         localStorage.setItem("stickyNotes", []);
@@ -30,8 +35,7 @@ document.addEventListener("DOMContentLoaded", function (){
 function createStickyNote(color, X = 0, Y = 0, description = '', id = ''){
     const stickyNote = document.createElement('div');
     stickyNote.id = id || ('stickyNote' + Date.now().toString());
-    stickyNote.className = 'stickyNote'
-
+    stickyNote.className = 'stickyNote';
     const stickyNoteHeader = document.createElement('div');
     stickyNoteHeader.id = 'stickyNoteHeader';
     stickyNoteHeader.innerHTML = `=&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Sticky Note`;
@@ -50,7 +54,8 @@ function createStickyNote(color, X = 0, Y = 0, description = '', id = ''){
     stickyNoteInput.id = 'stickyNoteInput';
     const stickyTextArea = document.createElement('textarea');
     stickyTextArea.id = 'stickyTextArea';
-    stickyTextArea.innerText = description
+    stickyTextArea.innerText = description;
+    //Store the sticky notes' information again after typing characters
     stickyTextArea.onkeyup = function(){
         storeStickyNote(stickyNote);
     }
@@ -83,7 +88,7 @@ function createStickyNote(color, X = 0, Y = 0, description = '', id = ''){
     document.addEventListener("mouseup", ()=>{
         //stop dragging the sticky note when we let go of left click
         document.removeEventListener("mousemove", move);
-        //store position and text contents here!!!
+        //store the sticky notes' information
         storeStickyNote(stickyNote);
     });
 }
