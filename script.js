@@ -147,16 +147,17 @@ function clearEditModalFields() {
 }
 
 
-
-function createTaskElement(content, id, description, date, tag, colname) {
+function createTaskElement(title, id, description, date, tag, colname) {
     const task = document.createElement("div");
-    const durations = ['Short task', 'Medium task', "Long task"]
 
     task.id = id;
-    task.className = `task${colname}`;
+    //colname would be "Todo", "In-Progress", and "Done". className is used to change the style of the 
+    //task depending on the column it's in
+    task.className = `task${colname}`; 
     task.draggable = true;
-    task.innerHTML = `
-        <h3>${content}</h3>
+    task.innerHTML = 
+    `
+        <h3>${title}</h3>
         <p class="description">${description}</p>
         <p class="date">
             <img class="icons" src='./asset/Calendar.webp'></img>
