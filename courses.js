@@ -2,7 +2,7 @@ async function importCanvas() {
     const API_TOKEN = document.getElementById("inputToken").value;
     try {
         //call to the assignments.js file that does the handling of retreiving from the API
-        const response = await fetch(`/api/assignments.js?token=${API_TOKEN}`);
+        const response = await fetch(`/api/assignments?token=${API_TOKEN}`);
 
         if (!response.ok) {
             console.error(`Error: ${response.status} ${response.statusText}`);
