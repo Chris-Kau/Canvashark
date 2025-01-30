@@ -4,6 +4,17 @@ function openStickyNoteModal() {
 function closeStickyNoteModal() {
     document.getElementById("stickyNoteModal").style.display = "none";
 }
+
+function storeStickyNote(stickyNote){
+    existingStickyNotes[stickyNote.id] = [stickyNote.style.backgroundColor, stickyNote.style.left, stickyNote.style.top, stickyTextArea.value, stickyNote.id];
+    localStorage.setItem("stickyNotes", JSON.stringify(existingStickyNotes));
+}
+
+function deleteStickyNote(stickyNote){
+    delete existingStickyNotes[stickyNote.id];
+    localStorage.setItem("stickyNotes", JSON.stringify(existingStickyNotes));
+}
+
 var existingStickyNotes = {}
 document.addEventListener("DOMContentLoaded", function (){
     if(!localStorage.getItem("stickyNotes")){
@@ -29,8 +40,7 @@ function createStickyNote(color, X = 0, Y = 0, description = '', id = ''){
     closeButton.innerHTML = '&times;';
     closeButton.onclick = function() {
         stickyNote.remove();
-        delete existingStickyNotes[stickyNote.id]
-        localStorage.setItem("stickyNotes", JSON.stringify(existingStickyNotes))
+        deleteStickyNote(stickyNote);
     };
 
     stickyNoteHeader.appendChild(closeButton);
@@ -42,22 +52,19 @@ function createStickyNote(color, X = 0, Y = 0, description = '', id = ''){
     stickyTextArea.id = 'stickyTextArea';
     stickyTextArea.innerText = description
     stickyTextArea.onkeyup = function(){
-        existingStickyNotes[stickyNote.id] = [color, stickyNote.style.left, stickyNote.style.top, stickyTextArea.value, stickyNote.id];
-        localStorage.setItem("stickyNotes", JSON.stringify(existingStickyNotes));
+        storeStickyNote(stickyNote);
     }
 
     stickyNoteInput.appendChild(stickyTextArea);
     stickyNote.appendChild(stickyNoteInput);
-
     stickyNoteHeader.style.backgroundColor = color;
     stickyNote.style.backgroundColor = color;
     
     document.getElementById('stickyNotesContainer').appendChild(stickyNote);
-    //Move to sticky note to the default position
+    //Move to sticky note to the saved position if any
     stickyNote.style.left = X;
     stickyNote.style.top = Y;
-    existingStickyNotes[stickyNote.id] = [color, stickyNote.style.left, stickyNote.style.top, stickyTextArea.value, stickyNote.id];
-    localStorage.setItem("stickyNotes", JSON.stringify(existingStickyNotes));
+    storeStickyNote(stickyNote);
     //Logic for dragging Sticky note around
     let offsetX, offsetY;
     const move = (e) =>{
@@ -77,7 +84,6 @@ function createStickyNote(color, X = 0, Y = 0, description = '', id = ''){
         //stop dragging the sticky note when we let go of left click
         document.removeEventListener("mousemove", move);
         //store position and text contents here!!!
-        existingStickyNotes[stickyNote.id] = [color, stickyNote.style.left, stickyNote.style.top, stickyTextArea.value, stickyNote.id]
-        localStorage.setItem("stickyNotes", JSON.stringify(existingStickyNotes))
+        storeStickyNote(stickyNote);
     });
 }
