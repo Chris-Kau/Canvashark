@@ -20,9 +20,9 @@ export default async function handler(req, res) {
                     let currentAssignment = upcomingAssignments[i];
                     if(currentAssignment['description']){
                         //store the assignments' info as a list with [title, description, due date]
-                        assignments.push([currentAssignment['title'], currentAssignment['description'].replace(/<[^>]+>/g, ''), currentAssignment['assignment']['due_at']]);
+                        assignments.push([currentAssignment['context_name'].concat(': ', currentAssignment['title']), currentAssignment['description'].replace(/<[^>]+>/g, ''), currentAssignment['assignment']['due_at']]);
                     }else{
-                        assignments.push([currentAssignment['title'], 'No available description', currentAssignment['assignment']['due_at']]);
+                        assignments.push([currentAssignment['context_name'].concat(': ', currentAssignment['title']), 'No available description', currentAssignment['assignment']['due_at']]);
                     }
                 }
             }
