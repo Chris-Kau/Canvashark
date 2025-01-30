@@ -14,13 +14,15 @@ export default async function handler(req, res) {
                 },
             });
 
-            const ass = await get_upcoming_assignments.json();
-            for (let i = 0; i < ass.length; i++) {
-                if(ass[i]['assignment']){
-                    if(ass[i]['description']){
-                        assignments.push([ass[i]['title'], ass[i]['description'].replace(/<[^>]+>/g, ''), ass[i]['assignment']['due_at']]);
+            const upcomingAssignments = await get_upcoming_assignments.json();
+            for (let i = 0; i < upcomingAssignments.length; i++) {
+                if(upcomingAssignments[i]['assignment']){
+                    let currentAssignment = upcomingAssignments[i];
+                    if(currentAssignment['description']){
+                        //store the assignments' info as a list with [title, description, due date]
+                        assignments.push([currentAssignment['title'], currentAssignment['description'].replace(/<[^>]+>/g, ''), currentAssignment['assignment']['due_at']]);
                     }else{
-                        assignments.push([ass[i]['title'], 'No available description', ass[i]['assignment']['due_at']]);
+                        assignments.push([currentAssignment['title'], 'No available description', currentAssignment['assignment']['due_at']]);
                     }
                 }
             }
