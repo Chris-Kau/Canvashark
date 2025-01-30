@@ -10,7 +10,7 @@ async function importCanvas() {
         }
 
         const data = await response.json();
-        //store the data to local storage and call the importedCanvasAssignments to update the tasks on the user interface
+        //store the data to local storage and call importedCanvasAssignments() to update the tasks on the user interface
         localStorage.setItem('upcomingEvents', JSON.stringify(data))
         importedCanvasAssignments();
         return data;
