@@ -10,7 +10,13 @@ var existingStickyNotes = {}
 function storeStickyNote(stickyNote){
     //Stores the sticky note in an associative list where its key is its ID and its value
     //is a list of its attributes: Color, xPos, yPos, Description, and its unique ID
-    existingStickyNotes[stickyNote.id] = [stickyNote.style.backgroundColor, stickyNote.style.left, stickyNote.style.top, stickyTextArea.value, stickyNote.id];
+    existingStickyNotes[stickyNote.id] = [
+        stickyNote.style.backgroundColor, 
+        stickyNote.style.left, 
+        stickyNote.style.top, 
+        stickyTextArea.value, 
+        stickyNote.id
+    ];
     localStorage.setItem("stickyNotes", JSON.stringify(existingStickyNotes));
 }
 
@@ -27,7 +33,12 @@ document.addEventListener("DOMContentLoaded", function (){
     }else{
         let stickyNotes = JSON.parse(localStorage.getItem("stickyNotes"))
         for(var i in stickyNotes){
-            createStickyNote(stickyNotes[i][0],stickyNotes[i][1],stickyNotes[i][2],stickyNotes[i][3],stickyNotes[i][4])
+            createStickyNote(
+                stickyNotes[i][0],
+                stickyNotes[i][1],
+                stickyNotes[i][2],
+                stickyNotes[i][3],
+                stickyNotes[i][4]);
         }
     }
 });
