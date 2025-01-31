@@ -74,12 +74,13 @@ function createStickyNote(color, X = 0, Y = 0, description = '', id = ''){
     let offsetX, offsetY;
     const move = (e) =>{
         //updating the position of the sticky note based off the mouse position
+        //so the sticky note moves smoother with the mouse cursor.
         stickyNote.style.left = `${e.clientX - offsetX}px`;
         stickyNote.style.top = `${e.clientY - offsetY}px`;
 
     }
     stickyNoteHeader.addEventListener("mousedown", (e) =>{
-        //calculate offset values
+        //calculate offset values to prevent sticky note from moving back to its default position
         offsetX = e.clientX - stickyNote.offsetLeft;
         offsetY = e.clientY - stickyNote.offsetTop;
         document.addEventListener("mousemove", move)
