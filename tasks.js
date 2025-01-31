@@ -277,7 +277,7 @@ function importedCanvasAssignments(){
         const status = "Todo"
         if (title !== "") {
             const newTask = {
-                id: "task-".concat(Date.now().toString()),
+                id: "task-".concat(Date.now().toString()).concat("",i),
                 content: title,
                 description: description,
                 date: date,
