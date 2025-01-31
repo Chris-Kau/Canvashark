@@ -13,7 +13,6 @@ export default async function handler(req, res) {
                 },
             });
             const upcomingAssignments = await get_upcoming_assignments.json();
-            console.log(upcomingAssignments);
             //go through every upcoming assignment and add its information to the assignments list
             //each assignment is stored as a list with 3 elements: title, description, and due date
             for (let i = 0; i < upcomingAssignments.length; i++) {
